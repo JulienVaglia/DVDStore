@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.dvdstore;
 
+import com.simplon.dvdstore.dvdstore.repositories.DvdModel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
