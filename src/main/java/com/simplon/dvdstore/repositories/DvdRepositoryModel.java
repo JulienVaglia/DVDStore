@@ -1,6 +1,7 @@
 package com.simplon.dvdstore.repositories;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Value;
@@ -11,9 +12,10 @@ import lombok.Value;
 @Table(name="dvdstore")
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class DvdRepositoryModel {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     @Column(name="name")
     private String name;
