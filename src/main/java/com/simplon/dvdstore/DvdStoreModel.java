@@ -1,7 +1,7 @@
 package com.simplon.dvdstore;
 
 
-import com.simplon.dvdstore.repositories.DvdRepositoryModel;
+import com.simplon.dvdstore.repositories.dvd.DvdRepositoryModel;
 import lombok.Data;
 
 import java.util.ArrayList;
