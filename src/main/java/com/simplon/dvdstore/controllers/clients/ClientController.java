@@ -3,10 +3,9 @@ package com.simplon.dvdstore.controllers.clients;
 import com.simplon.dvdstore.services.clients.ClientService;
 import com.simplon.dvdstore.services.clients.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/clients")
@@ -26,5 +25,16 @@ public class ClientController {
 
                 return clientService.add(clientServiceModel);
     }
+
+
+//GET ALL
+    @GetMapping("/")
+    public ArrayList<ClientGetDTO> findAll()
+        {
+
+            ArrayList<ClientGetDTO> clientGetDTOArrayList = new ArrayList<>();
+            ArrayList<ClientServiceModel> clientServiceModelArrayList = clientService
+
+        }
 
 }
