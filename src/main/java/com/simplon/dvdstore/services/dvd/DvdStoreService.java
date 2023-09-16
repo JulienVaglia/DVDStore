@@ -59,10 +59,11 @@ public class DvdStoreService {
         else
             {
                 return new DvdServiceModel(
-                        Optional.ofNullable(dvdRepositoryModel.get().getId()),
-                        dvdRepositoryModel.get().getName(),
-                        dvdRepositoryModel.get().getGenre(),
-                        dvdRepositoryModel.get().getQuantity());
+                        Optional.ofNullable(
+                            dvdRepositoryModel.get().getId()),
+                            dvdRepositoryModel.get().getName(),
+                            dvdRepositoryModel.get().getGenre(),
+                            dvdRepositoryModel.get().getQuantity());
             }
     }
 

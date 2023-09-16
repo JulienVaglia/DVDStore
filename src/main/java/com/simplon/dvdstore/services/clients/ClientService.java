@@ -1,6 +1,5 @@
 package com.simplon.dvdstore.services.clients;
 
-import com.simplon.dvdstore.controllers.clients.ClientController;
 import com.simplon.dvdstore.repositories.clients.ClientRepository;
 import com.simplon.dvdstore.repositories.clients.ClientRepositoryModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +44,37 @@ public ArrayList<ClientServiceModel> findAll()
             }
             return clientServiceModelArrayList;
         }
+
+
+// GET ONE
+    public ClientServiceModel findById(Long id) {
+
+        Optional<ClientRepositoryModel> clientRepositoryModel = clientRepository.findById(id);
+
+        if ( clientRepositoryModel.isEmpty())
+            {
+               return null;
+            }
+        else
+            {
+                return new ClientServiceModel(
+                        Optional.ofNullable(clientRepositoryModel.get().getId()),
+                        clientRepositoryModel.get().getNom(),
+                        clientRepositoryModel.get().getPrenom(),
+                        clientRepositoryModel.get().getAddresse());
+            }
+    }
+
+
+//UPDATE
+//DELETE ALL
+//DELETE ONE
+
+
+
+
+
+
 
 
     }
