@@ -28,12 +28,21 @@ public class ClientController {
 
 
 //GET ALL
-    @GetMapping("/")
+    @GetMapping
     public ArrayList<ClientGetDTO> findAll()
         {
 
             ArrayList<ClientGetDTO> clientGetDTOArrayList = new ArrayList<>();
-            ArrayList<ClientServiceModel> clientServiceModelArrayList = clientService
+            ArrayList<ClientServiceModel> clientServiceModelArrayList = clientService.findAll();
+            for (ClientServiceModel x: clientServiceModelArrayList){
+                clientGetDTOArrayList.add(new ClientGetDTO(
+                x.getId().get(),
+                x.getNom(),
+                x.getPrenom(),
+                x.getAddresse()));
+            }
+
+            return clientGetDTOArrayList;
 
         }
 

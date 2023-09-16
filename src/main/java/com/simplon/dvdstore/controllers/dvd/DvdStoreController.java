@@ -41,9 +41,9 @@ public class DvdStoreController {
     @GetMapping
     public ArrayList<DvdStoreGetDTO> findAll()
         {
-            ArrayList<DvdStoreGetDTO> dvdStoreGetDTOList = new ArrayList<>();
-            ArrayList<DvdServiceModel> dvdServiceModelsArrayList =  dvdStoreService.findAll();
-            for(DvdServiceModel x: dvdServiceModelsArrayList){
+            ArrayList<DvdStoreGetDTO> dvdStoreGetDTOList = new ArrayList<>(); // Création d'une liste vide de la couche supérieure
+            ArrayList<DvdServiceModel> dvdServiceModelsArrayList =  dvdStoreService.findAll(); // Création d'une liste qui va récupérer les paramètres du modèle
+            for(DvdServiceModel x: dvdServiceModelsArrayList){ // Boucle sur les paramètres à récupérer
                 dvdStoreGetDTOList.add(new DvdStoreGetDTO(
                         x.getId().get(),
                         x.getName(),
