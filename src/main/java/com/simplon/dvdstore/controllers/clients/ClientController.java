@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/clients")
@@ -69,10 +70,40 @@ public class ClientController {
             {
                 return ResponseEntity.badRequest().body(null);
             }
-
-
-
     }
+
+
+//UPDATE
+    @PutMapping("/{id}")
+    public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody ClientDTO clientDTO){
+
+        ClientServiceModel clientServiceModel = new ClientServiceModel(
+                id,
+                clientDTO.nom(),
+                clientDTO.prenom(),
+                clientDTO.addresse());
+
+        return clientService.update(clientServiceModel);
+    }
+
+
+
+
+
+
+
+
+
+//DELETE ALL
+//DELETE ONE
+
+
+
+
+
+
+
+
 
 
 }

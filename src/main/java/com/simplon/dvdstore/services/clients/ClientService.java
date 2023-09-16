@@ -67,6 +67,31 @@ public ArrayList<ClientServiceModel> findAll()
 
 
 //UPDATE
+    public boolean update(ClientServiceModel clientServiceModel) {
+
+        if (clientRepository != null){
+
+            ClientRepositoryModel clientRepositoryModel = new ClientRepositoryModel(
+                    clientServiceModel.getId().get(),
+                    clientServiceModel.getNom(),
+                    clientServiceModel.getPrenom(),
+                    clientServiceModel.getAddresse()
+            );
+
+            ClientRepositoryModel updateclientRepositoryModel =  clientRepository.save(clientRepositoryModel);
+            return updateclientRepositoryModel != null;
+        }
+        else
+            {
+                return false;
+            }
+
+
+
+    }
+
+
+
 //DELETE ALL
 //DELETE ONE
 
