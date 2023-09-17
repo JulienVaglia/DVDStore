@@ -91,9 +91,34 @@ public ArrayList<ClientServiceModel> findAll()
     }
 
 
+//DELETE ONE
+    public boolean delete(Long id) {
+        if (clientRepository.existsById(id))
+            {
+                clientRepository.deleteById(id);
+                return true;
+            }
+        else
+            {
+                return false;
+            }
+
+    }
+
 
 //DELETE ALL
-//DELETE ONE
+    public boolean deleteAll() {
+        if (clientRepository != null)
+            {
+                clientRepository.deleteAll();
+                return true;
+            }
+        else
+            {
+                return false;
+            }
+    }
+
 
 
 

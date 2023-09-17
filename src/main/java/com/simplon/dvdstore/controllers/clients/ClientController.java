@@ -87,19 +87,20 @@ public class ClientController {
     }
 
 
-
-
-
-
-
+//DELETE ONE
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Long id)
+    {
+        return clientService.delete(id);
+    }
 
 
 //DELETE ALL
-//DELETE ONE
-
-
-
-
+    @DeleteMapping("/")
+    public boolean deleteAll()
+    {
+        return clientService.deleteAll();
+    }
 
 
 
