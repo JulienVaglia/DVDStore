@@ -1,7 +1,7 @@
 package com.simplon.dvdstore.controllers.dvd;
 
 
-import com.simplon.dvdstore.exections.NotFoundExection;
+import com.simplon.dvdstore.exceptions.NotFoundExection;
 import com.simplon.dvdstore.services.dvd.DvdServiceModel;
 import com.simplon.dvdstore.services.dvd.DvdStoreService;
 import lombok.NoArgsConstructor;

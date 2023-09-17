@@ -18,10 +18,6 @@ public class DvdServiceModel {
         private Long quantity;
         private Float price;
 
-        public DvdServiceModel(String name, String genre) {
-                this.name = name;
-                this.genre = genre;
-        }
 
         public DvdServiceModel(String name, String genre, Long quantity, Float price) {
                 this.name = name;
