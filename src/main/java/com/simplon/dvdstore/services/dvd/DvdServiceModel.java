@@ -16,15 +16,17 @@ public class DvdServiceModel {
         private String name;
         private String genre;
         private Long quantity;
+        private Float price;
 
         public DvdServiceModel(String name, String genre) {
                 this.name = name;
                 this.genre = genre;
         }
 
-        public DvdServiceModel(String name, String genre, Long quantity) {
+        public DvdServiceModel(String name, String genre, Long quantity, Float price) {
                 this.name = name;
                 this.genre = genre;
                 this.quantity = quantity;
+                this.price = price;
         }
 }
