@@ -8,12 +8,12 @@ import lombok.Value;
 
 
 @Entity
-//@Value
 @Table(name="dvdstore")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class DvdRepositoryModel {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
