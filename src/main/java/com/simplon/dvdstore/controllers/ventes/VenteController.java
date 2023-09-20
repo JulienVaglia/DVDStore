@@ -4,10 +4,9 @@ import com.simplon.dvdstore.services.ventes.VenteService;
 import com.simplon.dvdstore.services.ventes.VenteServiceModel;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("ventes")
@@ -26,9 +25,9 @@ public class VenteController {
         {
             VenteServiceModel venteServiceModel = new VenteServiceModel(
                     venteDTO.montant(),
+                    venteDTO.quantity(),
                     venteDTO.id_dvd(),
-                    venteDTO.id_client(),
-                    venteDTO.quantity());
+                    venteDTO.id_client());
 
             venteService.add(venteServiceModel);
 
@@ -36,7 +35,27 @@ public class VenteController {
 
         }
 
+//GET ALL
+    @GetMapping
+    public ArrayList<VenteGetDTO> findAll()
+        {
+            ArrayList<VenteGetDTO> venteGetDTOArrayList = new ArrayList<>();
+            ArrayList<VenteServiceModel> venteServiceModelArrayList = venteService.findAll();
 
+            for (VenteServiceModel x : venteServiceModelArrayList) {
+                venteGetDTOArrayList.add( new VenteGetDTO(
+                        x.getId().get(),
+                        x.getDate(),
+                        x.getMontant(),
+                        x.getQuantity(),
+                        x.getId_client(),
+                        x.getId_dvd()));
+
+            }
+
+            return venteGetDTOArrayList;
+
+        }
 
 
 

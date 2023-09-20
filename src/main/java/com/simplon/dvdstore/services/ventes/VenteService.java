@@ -9,6 +9,9 @@ import com.simplon.dvdstore.repositories.ventes.VenteRepositoryModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 @Service
 public class VenteService {
 
@@ -18,9 +21,6 @@ public class VenteService {
     DvdStoreRepository dvdStoreRepository;
     @Autowired
     ClientRepository clientRepository;
-
-
-
 
 
 // Create
@@ -40,4 +40,23 @@ public class VenteService {
 
     }
 
+
+// GET ALL
+    public ArrayList<VenteServiceModel> findAll() {
+
+        ArrayList<VenteRepositoryModel> venteRepositoryModelArrayList = venteRepository.findAll();
+        ArrayList<VenteServiceModel> venteServiceModelArrayList = new ArrayList<>();
+
+        for ( VenteRepositoryModel x: venteRepositoryModelArrayList ){
+            venteServiceModelArrayList.add((new VenteServiceModel(
+                    Optional.ofNullable(x.getId()),
+                    x.getDate(),
+                    x.getMontant(),
+                    x.getQuantity(),
+                    clientRepository.findAllById(),
+                    venteRepository.findAllById()
+            ));
+        }
+
+    }
 }

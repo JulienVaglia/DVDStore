@@ -6,12 +6,14 @@ import com.simplon.dvdstore.repositories.clients.ClientRepositoryModel;
 import com.simplon.dvdstore.repositories.dvd.DvdRepositoryModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "vente")
 @NoArgsConstructor
 @AllArgsConstructor

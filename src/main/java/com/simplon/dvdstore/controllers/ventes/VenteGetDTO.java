@@ -4,7 +4,8 @@ import com.simplon.dvdstore.controllers.clients.ClientGetDTO;
 import com.simplon.dvdstore.controllers.dvd.DvdStoreGetDTO;
 
 import java.time.LocalDate;
+import java.util.Date;
 
-public record VenteGetDTO (Long id, LocalDate date, DvdStoreGetDTO dvdStoreGetDTO, ClientGetDTO clientGetDTO, int quantity){
+public record VenteGetDTO (Long id, Date date, Float montant,int quantity, Long id_dvd, Long id_client){
 
 }

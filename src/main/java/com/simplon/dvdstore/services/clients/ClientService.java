@@ -33,9 +33,10 @@ public class ClientService {
 public ArrayList<ClientServiceModel> findAll()
     {
 
-        ArrayList<ClientServiceModel> clientServiceModelArrayList = new ArrayList<>();
         ArrayList<ClientRepositoryModel> clientRepositoryModelArrayList = clientRepository.findAll();
-            for (ClientRepositoryModel x: clientRepositoryModelArrayList){
+        ArrayList<ClientServiceModel> clientServiceModelArrayList = new ArrayList<>();
+
+            for ( ClientRepositoryModel x: clientRepositoryModelArrayList ){
                 clientServiceModelArrayList.add(new ClientServiceModel(
                 Optional.ofNullable(x.getId()),
                 x.getNom(),
