@@ -9,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "vente")
@@ -30,30 +28,21 @@ public class VenteRepositoryModel {
     @Column(name = "montant")
     private Float montant;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "dvdstore_id")
-    private List<DvdStoreGetDTO> dvdStoreGetDTOList;
+    private DvdRepositoryModel dvdRepositoryModel;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private List<ClientGetDTO> clientGetDTOList;
-
-
+    private ClientRepositoryModel clientRepositoryModel;
 
     @Column(name = "quantity")
     private int quantity;
-//    @Column(name = "nom")
-//    private String nom;
-//    @Column(name = "prenom")
-//    private String prenom;
-//    @Column(name = "product")
-//    private String product;
 
-
-    public VenteRepositoryModel(Float montant, List<DvdStoreGetDTO> dvdStoreGetDTOList, List<ClientGetDTO> clientGetDTOList, int quantity) {
+    public VenteRepositoryModel(Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
         this.montant = montant;
-        this.dvdStoreGetDTOList = dvdStoreGetDTOList;
-        this.clientGetDTOList = clientGetDTOList;
+        this.dvdRepositoryModel = dvdRepositoryModel;
+        this.clientRepositoryModel = clientRepositoryModel;
         this.quantity = quantity;
     }
 
