@@ -26,17 +26,12 @@ public class VenteService {
 // Create
     public boolean add(VenteServiceModel venteServiceModel) {
 
-        DvdRepositoryModel dvdRepositoryModel = dvdStoreRepository.findById(venteServiceModel.getId_dvd()).get();
-        ClientRepositoryModel clientRepositoryModel = clientRepository.findById(venteServiceModel.getId_client()).get();
 
         VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
 
                 venteServiceModel.getMontant(),
-                clientRepositoryModel.getNom(),
-                clientRepositoryModel.getPrenom(),
-                dvdRepositoryModel.getName(),
-                dvdRepositoryModel,
-                clientRepositoryModel,
+                dvdStoreRepository.findById(venteServiceModel.getId_dvd()).get(),
+                clientRepository.findById(venteServiceModel.getId_client()).get(),
                 venteServiceModel.getQuantity());
 
         VenteRepositoryModel venteRepositoryModelReturned = venteRepository.save(venteRepositoryModel);
