@@ -42,21 +42,21 @@ public class VenteService {
 
 
 // GET ALL
-    public ArrayList<VenteServiceModel> findAll() {
-
-        ArrayList<VenteRepositoryModel> venteRepositoryModelArrayList = venteRepository.findAll();
-        ArrayList<VenteServiceModel> venteServiceModelArrayList = new ArrayList<>();
-
-        for ( VenteRepositoryModel x: venteRepositoryModelArrayList ){
-            venteServiceModelArrayList.add((new VenteServiceModel(
-                    Optional.ofNullable(x.getId()),
-                    x.getDate(),
-                    x.getMontant(),
-                    x.getQuantity(),
-                    clientRepository.findAllById(),
-                    venteRepository.findAllById()
-            ));
-        }
-
-    }
+//    public ArrayList<VenteServiceModel> findAll() {
+//
+//        ArrayList<VenteRepositoryModel> venteRepositoryModelArrayList = venteRepository.findAll();
+//        ArrayList<VenteServiceModel> venteServiceModelArrayList = new ArrayList<>();
+//
+//        for ( VenteRepositoryModel x: venteRepositoryModelArrayList ){
+//            venteServiceModelArrayList.add((new VenteServiceModel(
+//                    Optional.ofNullable(x.getId()),
+//                    x.getDate(),
+//                    x.getMontant(),
+//                    x.getQuantity(),
+//                    clientRepository.findAllById(),
+//                    venteRepository.findAllById()
+//            ));
+//        }
+//
+//    }
 }

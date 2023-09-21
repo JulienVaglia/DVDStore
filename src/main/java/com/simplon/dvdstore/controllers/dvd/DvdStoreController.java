@@ -32,7 +32,8 @@ public class DvdStoreController {
                     dvdStoreDTO.name(),
                     dvdStoreDTO.genre(),
                     dvdStoreDTO.quantity(),
-                    dvdStoreDTO.price());
+                    dvdStoreDTO.price(),
+                    dvdStoreDTO.photo());
 
             return dvdStoreService.add(dvdServiceModel);
         }
@@ -50,7 +51,8 @@ public class DvdStoreController {
                         x.getName(),
                         x.getGenre(),
                         x.getQuantity(),
-                        x.getPrice()));
+                        x.getPrice(),
+                        x.getPhoto()));
             }
 
             return dvdStoreGetDTOList;
@@ -69,7 +71,8 @@ public class DvdStoreController {
                         dvdServiceModel.getName(),
                         dvdServiceModel.getGenre(),
                         dvdServiceModel.getQuantity(),
-                        dvdServiceModel.getPrice()
+                        dvdServiceModel.getPrice(),
+                        dvdServiceModel.getPhoto()
                 );
                 return new ResponseEntity<>(dvdStoreGetDTO, HttpStatus.OK);
             } else {
@@ -95,7 +98,8 @@ public class DvdStoreController {
                     dvdStoreDTO.name(),
                     dvdStoreDTO.genre(),
                     dvdStoreDTO.quantity(),
-                    dvdStoreDTO.price());
+                    dvdStoreDTO.price(),
+                    dvdStoreDTO.photo());
 
             return dvdStoreService.update(dvdServiceModel);
 

@@ -25,12 +25,15 @@ public class DvdRepositoryModel {
     private Long quantity;
     @Column(name = "price")
     private Float price;
+    @Column(name = "photo")
+    private String photo;
 
-    public DvdRepositoryModel(String name, String genre, Long quantity, Float price)
+    public DvdRepositoryModel(String name, String genre, Long quantity, Float price, String photo)
         {
             this.name = name;
             this.genre = genre;
             this.quantity = quantity;
             this.price = price;
+            this.photo = photo;
         }
 }
