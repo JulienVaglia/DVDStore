@@ -18,13 +18,15 @@ public class DvdServiceModel {
         private Long quantity;
         private Float price;
         private String photo;
+        private String description;
 
 
-        public DvdServiceModel(String name, String genre, Long quantity, Float price, String photo) {
+        public DvdServiceModel(String name, String genre, Long quantity, Float price, String photo, String description) {
                 this.name = name;
                 this.genre = genre;
                 this.quantity = quantity;
                 this.price = price;
                 this.photo = photo;
+                this.description = description;
         }
 }

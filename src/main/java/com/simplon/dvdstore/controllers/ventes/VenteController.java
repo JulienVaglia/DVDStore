@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("ventes")
 @NoArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class VenteController {
 
 
@@ -36,26 +37,26 @@ public class VenteController {
         }
 
 //GET ALL
-    @GetMapping
-    public ArrayList<VenteGetDTO> findAll()
-        {
-            ArrayList<VenteGetDTO> venteGetDTOArrayList = new ArrayList<>();
-            ArrayList<VenteServiceModel> venteServiceModelArrayList = venteService.findAll();
-
-            for (VenteServiceModel x : venteServiceModelArrayList) {
-                venteGetDTOArrayList.add( new VenteGetDTO(
-                        x.getId().get(),
-                        x.getDate(),
-                        x.getMontant(),
-                        x.getQuantity(),
-                        x.getId_client(),
-                        x.getId_dvd()));
-
-            }
-
-            return venteGetDTOArrayList;
-
-        }
+//    @GetMapping
+//    public ArrayList<VenteGetDTO> findAll()
+//        {
+//            ArrayList<VenteGetDTO> venteGetDTOArrayList = new ArrayList<>();
+//            ArrayList<VenteServiceModel> venteServiceModelArrayList = venteService.findAll();
+//
+//            for (VenteServiceModel x : venteServiceModelArrayList) {
+//                venteGetDTOArrayList.add( new VenteGetDTO(
+//                        x.getId().get(),
+//                        x.getDate(),
+//                        x.getMontant(),
+//                        x.getQuantity(),
+//                        x.getId_client(),
+//                        x.getId_dvd()));
+//
+//            }
+//
+//            return venteGetDTOArrayList;
+//
+//        }
 
 
 

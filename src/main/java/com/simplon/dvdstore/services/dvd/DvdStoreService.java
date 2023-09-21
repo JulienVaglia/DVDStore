@@ -23,7 +23,8 @@ public class DvdStoreService {
                     dvdServiceModel.getGenre(),
                     dvdServiceModel.getQuantity(),
                     dvdServiceModel.getPrice(),
-                    dvdServiceModel.getPhoto());
+                    dvdServiceModel.getPhoto(),
+                    dvdServiceModel.getDescription());
 
             DvdRepositoryModel dvdRepositoryModelReturned = dvdStoreRepository.save( dvdRepositoryModel);
 
@@ -44,7 +45,8 @@ public class DvdStoreService {
                         x.getGenre(),
                         x.getQuantity(),
                         x.getPrice(),
-                        x.getPhoto()));
+                        x.getPhoto(),
+                        x.getDescription()));
             }
 
             return dvdModelService;
@@ -69,7 +71,8 @@ public class DvdStoreService {
                             dvdRepositoryModel.get().getGenre(),
                             dvdRepositoryModel.get().getQuantity(),
                             dvdRepositoryModel.get().getPrice(),
-                            dvdRepositoryModel.get().getPhoto());
+                            dvdRepositoryModel.get().getPhoto(),
+                            dvdRepositoryModel.get().getDescription());
             }
     }
 
@@ -85,7 +88,8 @@ public class DvdStoreService {
                         dvdServiceModel.getGenre(),
                         dvdServiceModel.getQuantity(),
                         dvdServiceModel.getPrice(),
-                        dvdServiceModel.getPhoto());
+                        dvdServiceModel.getPhoto(),
+                        dvdServiceModel.getDescription());
 
                 DvdRepositoryModel updateDvdRepositoryModel = dvdStoreRepository.save(dvdRepositoryModel);
 

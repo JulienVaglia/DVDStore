@@ -1,6 +1,6 @@
 package com.simplon.dvdstore.controllers.dvd;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.simplon.dvdstore.exceptions.NotFoundExection;
 import com.simplon.dvdstore.services.dvd.DvdServiceModel;
 import com.simplon.dvdstore.services.dvd.DvdStoreService;
@@ -17,8 +17,8 @@ import java.util.Optional;
 @RestController // donnees json ou xml
 @RequestMapping("dvds")
 @NoArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class DvdStoreController {
-
 
     @Autowired
     DvdStoreService dvdStoreService;
@@ -33,7 +33,8 @@ public class DvdStoreController {
                     dvdStoreDTO.genre(),
                     dvdStoreDTO.quantity(),
                     dvdStoreDTO.price(),
-                    dvdStoreDTO.photo());
+                    dvdStoreDTO.photo(),
+                    dvdStoreDTO.description());
 
             return dvdStoreService.add(dvdServiceModel);
         }
@@ -52,7 +53,8 @@ public class DvdStoreController {
                         x.getGenre(),
                         x.getQuantity(),
                         x.getPrice(),
-                        x.getPhoto()));
+                        x.getPhoto(),
+                        x.getDescription()));
             }
 
             return dvdStoreGetDTOList;
@@ -72,7 +74,8 @@ public class DvdStoreController {
                         dvdServiceModel.getGenre(),
                         dvdServiceModel.getQuantity(),
                         dvdServiceModel.getPrice(),
-                        dvdServiceModel.getPhoto()
+                        dvdServiceModel.getPhoto(),
+                        dvdServiceModel.getDescription()
                 );
                 return new ResponseEntity<>(dvdStoreGetDTO, HttpStatus.OK);
             } else {
@@ -99,7 +102,8 @@ public class DvdStoreController {
                     dvdStoreDTO.genre(),
                     dvdStoreDTO.quantity(),
                     dvdStoreDTO.price(),
-                    dvdStoreDTO.photo());
+                    dvdStoreDTO.photo(),
+                    dvdStoreDTO.description());
 
             return dvdStoreService.update(dvdServiceModel);
 
