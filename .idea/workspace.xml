@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e38ae41-9e06-4486-90e3-f54e48eeb3e8" name="Changes" comment="VenteRepository ajouté" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Back - JAVA" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2VKr23M2ubvx78RSCNOjiaFQMLd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="DvdstoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.simplon.dvdstore.DvdstoreApplication" />
+      <module name="dvdstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.simplon.dvdstore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DvdstoreApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e38ae41-9e06-4486-90e3-f54e48eeb3e8" name="Changes" comment="" />
+      <created>1694595406762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694595406762</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Creation objet sur toutes les couches / DTO">
+      <option name="closed" value="true" />
+      <created>1694595852117</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694595852117</updated>
+    </task>
+    <task id="LOCAL-00002" summary="FindOne en cours">
+      <option name="closed" value="true" />
+      <created>1694616391477</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694616391477</updated>
+    </task>
+    <task id="LOCAL-00003" summary="CRUD termine">
+      <option name="closed" value="true" />
+      <created>1694697186424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694697186424</updated>
+    </task>
+    <task id="LOCAL-00004" summary="GET All OK">
+      <option name="closed" value="true" />
+      <created>1694904231697</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694904231697</updated>
+    </task>
+    <task id="LOCAL-00005" summary="GET All OK">
+      <option name="closed" value="true" />
+      <created>1694906771456</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694906771456</updated>
+    </task>
+    <task id="LOCAL-00006" summary="GET One OK">
+      <option name="closed" value="true" />
+      <created>1694906807465</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694906807465</updated>
+    </task>
+    <task id="LOCAL-00007" summary="UPDATE OK">
+      <option name="closed" value="true" />
+      <created>1694907952752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694907952752</updated>
+    </task>
+    <task id="LOCAL-00008" summary="DELETE / DELETE ALL OK">
+      <option name="closed" value="true" />
+      <created>1694956300901</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694956300901</updated>
+    </task>
+    <task id="LOCAL-00009" summary="param &quot;price&quot; rajoute aux dvds">
+      <option name="closed" value="true" />
+      <created>1694958860459</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694958860459</updated>
+    </task>
+    <task id="LOCAL-00010" summary="VenteRepository ajouté">
+      <option name="closed" value="true" />
+      <created>1694973250110</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694973250110</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creation objet sur toutes les couches / DTO" />
+    <MESSAGE value="FindOne en cours" />
+    <MESSAGE value="CRUD termine" />
+    <MESSAGE value="GET All OK" />
+    <MESSAGE value="GET One OK" />
+    <MESSAGE value="UPDATE OK" />
+    <MESSAGE value="DELETE / DELETE ALL OK" />
+    <MESSAGE value="param &quot;price&quot; rajoute aux dvds" />
+    <MESSAGE value="VenteRepository ajouté" />
+    <option name="LAST_COMMIT_MESSAGE" value="VenteRepository ajouté" />
+  </component>
+</project>
