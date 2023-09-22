@@ -1,0 +1,87 @@
+<div class="">
+
+<!-- -------------- LOGO---------------------- -->
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="min-width: 15rem ; max-width: 15rem; height: 100vh;">
+        <a [routerLink]="['']">
+            <img class="mt-2 mb-3" src="/assets/img/logo_whiteBack.png" alt="" width="220rem" height="auto">
+        </a>
+
+<!-- -------------- ACCEUIL---------------------- -->
+
+        <a [routerLink]="['']" class="mt-4 ms-2 fs-4 nav-link link-body-emphasis" >
+            <img src="/assets/icon/home.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Acceuil
+        </a>
+ 
+
+
+<!-- -------------- FILMS---------------------- -->
+
+        <a [routerLink]="['movie_list']" class="mt-4 ms-2 fs-4 nav-link link-body-emphasis ">
+            <img src="/assets/icon/movie.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Films
+        </a>
+
+
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a [routerLink]="['movie_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                    Tout les films
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['movie_form']" class="nav-link link-body-emphasis mb-1">
+                    Ajouter un film
+                </a>
+            </li>
+        </ul>
+
+
+
+<!-- -------------- VENTES---------------------- -->
+
+        <a [routerLink]="['sale_list']" class="mt-4 ms-2 fs-4 nav-link link-body-emphasis ">
+            <img src="/assets/icon/cashier.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Ventes
+        </a>
+
+
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a [routerLink]="['sale_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                    Toutes les ventes
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['sale_form']" class="nav-link link-body-emphasis mb-1">
+                    Ajouter une vente
+                </a>
+            </li>
+        </ul>
+
+
+<!-- -------------- UTILISATEURS---------------------- -->
+
+        <a [routerLink]="['user_list']" class="mt-4 ms-2 fs-4 nav-link link-body-emphasis ">
+            <img src="/assets/icon/users.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Utilisateurs
+        </a>
+
+
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a [routerLink]="['user_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                    Tout les utilisateurs
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['user_form']" class="nav-link link-body-emphasis mb-1">
+                    Ajouter un utilisateur
+                </a>
+            </li>
+        </ul>
+        
+
+    </div>
+</div>

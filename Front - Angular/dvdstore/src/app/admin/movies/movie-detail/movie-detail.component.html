@@ -1,0 +1,21 @@
+<div class="card mx-auto shadow" style="width: 60rem;">
+    <img [src]="dvd.photo" class="card-img-top mx-auto mt-4" alt="" style="max-width: 30rem;">
+    <div class="card-body">
+        <div class="d-flex">
+           <div>
+            <h2 class="card-title">{{ dvd.name }}</h2>
+        <h3 style="color: grey;"> {{ dvd.genre }} </h3>
+        </div>
+        <div class="text-end position-absolute end-0 me-3">
+            <h2 class="card-title" style="color: blue;"> Prix :<span>{{ dvd.price }} €</span></h2>
+            <h3 style="color: grey;">Quantité en stock :<span>{{ dvd.quantity }} unité(s)</span>
+            </h3>
+        </div> 
+        </div>
+        
+        <div>
+            <h3>Synopsis :</h3>
+            <p class="card-text ms-2">{{dvd.description}}</p>
+        </div>
+    </div>
+</div>
