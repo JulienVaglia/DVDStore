@@ -70,8 +70,6 @@ public class VenteService {
                     x.getClientRepositoryModel().getPrenom(),
                     x.getClientRepositoryModel().getAddresse());
 
-
-
             venteServiceModelArrayList.add((new VenteServiceModel(
                     Optional.ofNullable(x.getId()),
                     x.getDate(),
@@ -83,5 +81,44 @@ public class VenteService {
         }
         return venteServiceModelArrayList;
     }
+
+
+// GET ONE
+//    public VenteServiceModel findById(Long id) {
+//
+//        Optional<VenteRepositoryModel> venteRepositoryModel = venteRepository.findById(id);
+//
+//        DvdServiceModel dvdServiceModel = new DvdServiceModel(
+//                Optional.ofNullable(x.getDvdRepositoryModel().getId()),
+//                x.getDvdRepositoryModel().getName(),
+//                x.getDvdRepositoryModel().getGenre(),
+//                x.getDvdRepositoryModel().getQuantity(),
+//                x.getDvdRepositoryModel().getPrice(),
+//                x.getDvdRepositoryModel().getPhoto(),
+//                x.getDvdRepositoryModel().getDescription());
+//
+//        ClientServiceModel clientServiceModel = new ClientServiceModel(
+//                Optional.ofNullable(x.getId()),
+//                x.getClientRepositoryModel().getNom(),
+//                x.getClientRepositoryModel().getPrenom(),
+//                x.getClientRepositoryModel().getAddresse());
+//
+//        if ( venteRepositoryModel.isEmpty())
+//        {
+//            return null;
+//        }
+//        else
+//        {
+//            return new ClientServiceModel(
+//                    Optional.ofNullable(venteRepositoryModel.get().getId()),
+//                    venteRepositoryModel.get().getDate(),
+//                    venteRepositoryModel.get().getMontant(),
+//                    venteRepositoryModel.get().getQuantity(),
+//                    venteRepositoryModel.get().getQuantity(),);
+//        }
+//
+//    }
+
+
 
 }

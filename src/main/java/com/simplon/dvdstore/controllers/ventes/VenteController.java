@@ -10,6 +10,8 @@ import com.simplon.dvdstore.services.ventes.VenteService;
 import com.simplon.dvdstore.services.ventes.VenteServiceModel;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -84,6 +86,45 @@ public class VenteController {
             return venteGetDTOArrayList;
 
         }
+
+
+// GET ONE
+    @GetMapping("/{id}")
+    public ResponseEntity<VenteGetDTO> findbyid(@PathVariable Long id) {
+        VenteServiceModel venteServiceModel = venteService.findById(id);
+
+        if (venteServiceModel != null) {
+            DvdStoreGetDTO dvdStoreGetDTO = new DvdStoreGetDTO(
+                    venteServiceModel.getId_dvd().getId().get(),
+                    venteServiceModel.getId_dvd().getName(),
+                    venteServiceModel.getId_dvd().getGenre(),
+                    venteServiceModel.getId_dvd().getQuantity(),
+                    venteServiceModel.getId_dvd().getPrice(),
+                    venteServiceModel.getId_dvd().getPhoto(),
+                    venteServiceModel.getId_dvd().getDescription()
+            );
+
+            ClientGetDTO clientGetDTO = new ClientGetDTO(
+                    venteServiceModel.getId_client().getId().get(),
+                    venteServiceModel.getId_client().getNom(),
+                    venteServiceModel.getId_client().getPrenom(),
+                    venteServiceModel.getId_client().getAddresse());
+
+
+            VenteGetDTO venteGetDTO = new VenteGetDTO(
+                    venteServiceModel.getId().get(),
+                    venteServiceModel.getDate(),
+                    venteServiceModel.getMontant(),
+                    venteServiceModel.getQuantity(),
+                    dvdStoreGetDTO,
+                    clientGetDTO
+            );
+
+            return new ResponseEntity<>(venteGetDTO, HttpStatus.OK);
+        } else {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
 
 
 
