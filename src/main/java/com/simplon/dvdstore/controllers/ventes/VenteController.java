@@ -45,8 +45,6 @@ public class VenteController {
                     dvdService.findById(venteDTO.id_dvd()),
                     clientService.findById(venteDTO.id_client()));
 
-            venteService.add(venteServiceModel);
-
             return venteService.add(venteServiceModel);
 
         }
@@ -154,6 +152,12 @@ public class VenteController {
         }
 
 
+//DELETE ALL
+    @DeleteMapping("/")
+    public boolean deleteAll()
+        {
+            return venteService.deleteAll();
+        }
 
 
 

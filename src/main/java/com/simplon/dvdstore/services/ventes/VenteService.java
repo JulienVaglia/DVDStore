@@ -163,7 +163,6 @@ public class VenteService {
 
 
 //DELETE
-
     public boolean delete(Long id) {
 
         if (venteRepository.existsById(id))
@@ -179,4 +178,17 @@ public class VenteService {
     }
 
 
+//DELETE ALL
+    public boolean deleteAll() {
+
+        if (venteRepository != null)
+            {
+                venteRepository.deleteAll();
+                return  true;
+            }
+        else
+        {
+            return false;
+        }
+    }
 }
