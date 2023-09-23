@@ -79,8 +79,8 @@ public ArrayList<ClientServiceModel> findAll()
                     clientServiceModel.getAddresse()
             );
 
-            ClientRepositoryModel updateclientRepositoryModel =  clientRepository.save(clientRepositoryModel);
-            return updateclientRepositoryModel != null;
+            ClientRepositoryModel updateClientRepositoryModel =  clientRepository.save(clientRepositoryModel);
+            return updateClientRepositoryModel != null;
         }
         else
             {

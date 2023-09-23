@@ -15,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("ventes")
@@ -125,6 +127,31 @@ public class VenteController {
             return ResponseEntity.badRequest().body(null);
         }
     }
+
+
+//UPDATE
+//@PutMapping("/{id}")
+//public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date") Date date, @RequestBody VenteDTO venteDTO){
+//
+//    VenteServiceModel venteServiceModel = new VenteServiceModel(
+//            id,
+//            date,
+//            venteDTO.montant(),
+//            venteDTO.quantity(),
+//            dvdService.findById(venteDTO.id_dvd()),
+//            clientService.findById(venteDTO.id_client()));
+//
+//   return venteService.update(venteServiceModel);
+//
+//}
+
+
+//DELETE ONE
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Long id)
+        {
+            return venteService.delete(id);
+        }
 
 
 
