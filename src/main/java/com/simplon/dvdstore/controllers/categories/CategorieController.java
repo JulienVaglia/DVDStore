@@ -1,6 +1,5 @@
 package com.simplon.dvdstore.controllers.categories;
 
-
 import com.simplon.dvdstore.services.categories.CategorieService;
 import com.simplon.dvdstore.services.categories.CategorieServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
