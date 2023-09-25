@@ -48,4 +48,11 @@ public class VenteRepositoryModel {
         this.quantity = quantity;
     }
 
+    public VenteRepositoryModel(Date date, Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
+        this.date = date;
+        this.montant = montant;
+        this.dvdRepositoryModel = dvdRepositoryModel;
+        this.clientRepositoryModel = clientRepositoryModel;
+        this.quantity = quantity;
+    }
 }

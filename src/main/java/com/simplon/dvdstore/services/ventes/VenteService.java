@@ -1,6 +1,5 @@
 package com.simplon.dvdstore.services.ventes;
 
-import com.simplon.dvdstore.controllers.ventes.VenteDTO;
 import com.simplon.dvdstore.repositories.clients.ClientRepository;
 import com.simplon.dvdstore.repositories.clients.ClientRepositoryModel;
 import com.simplon.dvdstore.repositories.dvd.DvdRepositoryModel;
@@ -11,9 +10,6 @@ import com.simplon.dvdstore.services.clients.ClientServiceModel;
 import com.simplon.dvdstore.services.dvd.DvdServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -32,8 +28,8 @@ public class VenteService {
 // Create
     public boolean add(VenteServiceModel venteServiceModel) {
 
-        Optional<DvdRepositoryModel> dvdRepositoryModel = dvdStoreRepository.findById(venteServiceModel.getId_dvd().getId().get());
-        Optional<ClientRepositoryModel> clientRepositoryModel = clientRepository.findById(venteServiceModel.getId_client().getId().get());
+        Optional<DvdRepositoryModel> dvdRepositoryModel = dvdStoreRepository.findById(venteServiceModel.getDvd().getId().get());
+        Optional<ClientRepositoryModel> clientRepositoryModel = clientRepository.findById(venteServiceModel.getClient().getId().get());
 
         VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
 
@@ -135,31 +131,32 @@ public class VenteService {
 
 
 //UPDATE
-//public boolean update(VenteServiceModel venteServiceModel) {
-//
-//        if (venteRepository != null)
-//            {
-//
-//                VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
-//                        venteServiceModel.getId().get(),
-//                        venteServiceModel.getDate(),
-//                        venteServiceModel.getMontant(),
-//                        dvdStoreRepository.findById(venteServiceModel),
-//                        clientRepository.findById(venteServiceModel),
-//                        venteServiceModel.getQuantity());
-//
-//                //On enregistre les nouvelles données de venteRepositoryModel dans venteRepository
-//                VenteRepositoryModel updateVenteRepositoryModel = venteRepository.save(venteRepositoryModel);
-//
-//                return updateVenteRepositoryModel != null;
-//
-//        }
-//        else
-//        {
-//            return false;
-//        }
-//
-//}
+public boolean update(VenteServiceModel venteServiceModel) {
+
+        if (venteRepository != null)
+            {
+
+                VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
+                        venteServiceModel.getId().get(),
+                        venteServiceModel.getDate(),
+                        venteServiceModel.getMontant(),
+                        dvdStoreRepository.findById(venteServiceModel.getId_dvd()).get(),
+                        clientRepository.findById(venteServiceModel.getId_client()).get(),
+                        venteServiceModel.getQuantity());
+
+
+                //On enregistre les nouvelles données de venteRepositoryModel dans venteRepository
+                VenteRepositoryModel updateVenteRepositoryModel = venteRepository.save(venteRepositoryModel);
+
+                return updateVenteRepositoryModel != null;
+
+        }
+        else
+        {
+            return false;
+        }
+
+}
 
 
 //DELETE

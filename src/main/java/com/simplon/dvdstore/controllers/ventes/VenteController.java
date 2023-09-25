@@ -3,8 +3,6 @@ package com.simplon.dvdstore.controllers.ventes;
 import com.simplon.dvdstore.controllers.clients.ClientGetDTO;
 import com.simplon.dvdstore.controllers.dvd.DvdStoreGetDTO;
 import com.simplon.dvdstore.services.clients.ClientService;
-import com.simplon.dvdstore.services.clients.ClientServiceModel;
-import com.simplon.dvdstore.services.dvd.DvdServiceModel;
 import com.simplon.dvdstore.services.dvd.DvdStoreService;
 import com.simplon.dvdstore.services.ventes.VenteService;
 import com.simplon.dvdstore.services.ventes.VenteServiceModel;
@@ -59,19 +57,19 @@ public class VenteController {
             for (VenteServiceModel x : venteServiceModelArrayList) {
 
                DvdStoreGetDTO dvdStoreGetDTO = new DvdStoreGetDTO(
-                       x.getId_dvd().getId().get(),
-                       x.getId_dvd().getName(),
-                       x.getId_dvd().getGenre(),
-                       x.getId_dvd().getQuantity(),
-                       x.getId_dvd().getPrice(),
-                       x.getId_dvd().getPhoto(),
-                       x.getId_dvd().getDescription());
+                       x.getDvd().getId().get(),
+                       x.getDvd().getName(),
+                       x.getDvd().getGenre(),
+                       x.getDvd().getQuantity(),
+                       x.getDvd().getPrice(),
+                       x.getDvd().getPhoto(),
+                       x.getDvd().getDescription());
 
                 ClientGetDTO clientGetDTO = new ClientGetDTO(
-                        x.getId_client().getId().get(),
-                        x.getId_client().getNom(),
-                        x.getId_client().getPrenom(),
-                        x.getId_client().getAddresse());
+                        x.getClient().getId().get(),
+                        x.getClient().getNom(),
+                        x.getClient().getPrenom(),
+                        x.getClient().getAddresse());
 
                 venteGetDTOArrayList.add( new VenteGetDTO(
                         x.getId().get(),
@@ -95,20 +93,20 @@ public class VenteController {
 
         if (venteServiceModel != null) {
             DvdStoreGetDTO dvdStoreGetDTO = new DvdStoreGetDTO(
-                    venteServiceModel.getId_dvd().getId().get(),
-                    venteServiceModel.getId_dvd().getName(),
-                    venteServiceModel.getId_dvd().getGenre(),
-                    venteServiceModel.getId_dvd().getQuantity(),
-                    venteServiceModel.getId_dvd().getPrice(),
-                    venteServiceModel.getId_dvd().getPhoto(),
-                    venteServiceModel.getId_dvd().getDescription()
+                    venteServiceModel.getDvd().getId().get(),
+                    venteServiceModel.getDvd().getName(),
+                    venteServiceModel.getDvd().getGenre(),
+                    venteServiceModel.getDvd().getQuantity(),
+                    venteServiceModel.getDvd().getPrice(),
+                    venteServiceModel.getDvd().getPhoto(),
+                    venteServiceModel.getDvd().getDescription()
             );
 
             ClientGetDTO clientGetDTO = new ClientGetDTO(
-                    venteServiceModel.getId_client().getId().get(),
-                    venteServiceModel.getId_client().getNom(),
-                    venteServiceModel.getId_client().getPrenom(),
-                    venteServiceModel.getId_client().getAddresse());
+                    venteServiceModel.getClient().getId().get(),
+                    venteServiceModel.getClient().getNom(),
+                    venteServiceModel.getClient().getPrenom(),
+                    venteServiceModel.getClient().getAddresse());
 
 
             VenteGetDTO venteGetDTO = new VenteGetDTO(
@@ -127,21 +125,23 @@ public class VenteController {
     }
 
 
-//UPDATE
-//@PutMapping("/{id}")
-//public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date") Date date, @RequestBody VenteDTO venteDTO){
-//
-//    VenteServiceModel venteServiceModel = new VenteServiceModel(
-//            id,
-//            date,
-//            venteDTO.montant(),
-//            venteDTO.quantity(),
-//            dvdService.findById(venteDTO.id_dvd()),
-//            clientService.findById(venteDTO.id_client()));
-//
-//   return venteService.update(venteServiceModel);
-//
-//}
+// UPDATE
+@PutMapping("/{id}")
+public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date") Date date, @RequestBody VenteDTO venteDTO){
+
+
+
+    VenteServiceModel venteServiceModel = new VenteServiceModel(
+            id,
+            date,
+            venteDTO.montant(),
+            venteDTO.quantity(),
+            venteDTO.id_dvd(),
+            venteDTO.id_client());
+
+   return venteService.update(venteServiceModel);
+
+}
 
 
 //DELETE ONE
