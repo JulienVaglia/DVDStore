@@ -137,6 +137,7 @@ public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date
             venteDTO.montant(),
             venteDTO.quantity(),
             venteDTO.id_dvd(),
+
             venteDTO.id_client());
 
    return venteService.update(venteServiceModel);
