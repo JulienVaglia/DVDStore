@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MoviesService } from 'src/app/_services/movies.service';
 
 export interface DvdModel {
   id?: number,
@@ -23,20 +24,37 @@ export class MovieDetailComponent implements OnInit {
   dvd!: any;
   id: any = '';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
- 
-  
-  ngOnInit(){
+  constructor(private http: HttpClient, private route: ActivatedRoute, private httpMovie: MoviesService, private router: Router) { }
 
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.http.get('http://localhost:9000/dvds/' + this.id).subscribe({
 
-      next: (data) => { this.dvd = data, console.table(data)},
+  ngOnInit() 
+    {
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.http.get('http://localhost:9000/dvds/' + this.id).subscribe({
+
+        next: (data) => { this.dvd = data, console.table(data) },
+        error: (err: Error) => console.log('Erreur : ' + err),
+        complete: () => console.log('ngOnInit complet')
+
+      })
+    }
+
+
+  deleteMovie(id: any)
+    {
+      console.log(id);     
+      this.httpMovie.deleteMovie(id).subscribe({
+
+      next: (data) => 
+        { this.dvd = data, 
+          console.log(data),
+          this.router.navigate(['movie_list'])
+        },
       error: (err: Error) => console.log('Erreur : ' + err),
-      complete: () => console.log('ngOnInit complet')
+      complete: () => console.log('Supression effectuée')
 
-  })
-}
+    })
+    }
 
- 
+
 }

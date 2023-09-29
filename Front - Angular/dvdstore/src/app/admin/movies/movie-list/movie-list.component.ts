@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { HttpDvdService } from 'src/app/_services/http-dvd.service';
+import { ActivatedRoute } from '@angular/router';
+import { GenresService } from 'src/app/_services/genres.service';
+import { MoviesService } from 'src/app/_services/movies.service';
+import { GenreModel } from '../movie-form/movie-form.component';
 
 export interface DvdModel{
   id? : number,
@@ -15,11 +18,15 @@ export interface DvdModel{
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent{
+export class MovieListComponent {
 
-  constructor( private http : HttpDvdService ) {}
+
+  constructor( private http : MoviesService, private route: ActivatedRoute, private httpGenre: GenresService ) {}
+
  
   dvds : Array<DvdModel> = [];
+  genres: Array<GenreModel> = [];
+  dvdToShow: Array<DvdModel> = [];
 
   ngOnInit(): void {
     
@@ -27,12 +34,25 @@ export class MovieListComponent{
 
     next: (data) => {this.dvds = data, console.table(data);},
     error: (err: Error) => console.log('Erreur : ' + err),
-    complete: () => console.log('ngOnInit complet')
-
+    complete: () =>  this.dvdToShow=this.dvds
     })
-    
-    
+
+     this.httpGenre.getAllGenre().subscribe({
+      next: (data) => 
+      { this.genres = data, 
+        console.table(data)
+      },
+      error: (err: Error) => console.log('Erreur : ' + err),
+      complete: () => console.log()
+    })
+    ;  
   }
+
+  choixGenre = (genre : string) => {
+    this.dvdToShow = this.dvds.filter((value) => {
+        return value.genre === genre
+    })
+}
 
 }
 
