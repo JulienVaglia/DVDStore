@@ -30,40 +30,6 @@ export class ClientFormComponent {
       adresse: '',
     }
 
-
-  //-------------- Preview image --------------
-  //   imagePreview: string | ArrayBuffer | null = null; // Contient l'URL de l'aperçu de l'image
-
-  //   previewImage(event: Event) {
-  //     const inputElement = event.target as HTMLInputElement;
-  //     const file = inputElement.files?.[0];
-
-  //     if (file) {
-  //         const reader = new FileReader();
-  //         reader.onload = () => {
-  //             this.imagePreview = reader.result;
-  //         };
-  //         reader.readAsDataURL(file);
-  //     } else {
-  //         this.imagePreview = null;
-  //     }
-  // }
-
-//-------------- Ajoût client --------------
-
-
-    // addClient() {
-    //   console.log(this.clientModel);
-      
-    //   this.httpClient.addClient(this.clientModel).subscribe({
-  
-    //     next: (data) => { this.clientModel = data, console.log(data), this.router.navigate(['client_detail/' + this.id ])},
-    //     error: (err: Error) => console.log('Erreur : ' + err),
-    //     complete: () => { console.log('Ajoût réussi') }
-  
-    //   })
-    // }
-
     addClient() {
 
       this.id = this.route.snapshot.paramMap.get('id')
@@ -74,7 +40,7 @@ export class ClientFormComponent {
       
                   next: (data) => { this.clientModel = data, console.log(data), this.router.navigate(['client_detail/' + this.id ])},
                   error: (err: Error) => console.log('Erreur : ' + err),
-                  complete: () => { console.log('Ajoût réussi') }
+                  complete: () => { console.log('Modification réussie') }
             
                 })
           }
@@ -97,22 +63,24 @@ export class ClientFormComponent {
 
       this.id = this.route.snapshot.paramMap.get('id')
 
-      this.httpClient.getAllClients().subscribe({
-        next: (data) => { this.clients = data, console.table(data)},
-        error: (err: Error) => console.log('Erreur : ' + err),
-        complete: () => console.log('ngOnInitAllClients complet'),
-      })
-  
-      if (this.id != null) {
-  
-        this.http.get('http://localhost:9000/clients/' + this.id).subscribe({
-  
-          next: (data) => { this.clientModel = data, console.table(data) },
+      if (this.id != null) // si un ID on charge getOneClient
+        {
+    
+          this.httpClient.getOneClient(this.id).subscribe({
+            next: (data) => { this.clientModel = data, console.table(data) },
+            error: (err: Error) => console.log('Erreur : ' + err),
+            complete: () => console.log('ngOnInitClient complet')
+          })
+
+        }
+      else // si pas d'ID on charge getAllClients
+        {
+            this.httpClient.getAllClients().subscribe({
+          next: (data) => { this.clients = data, console.table(data)},
           error: (err: Error) => console.log('Erreur : ' + err),
-          complete: () => console.log('ngOnInitClient complet')
-  
+          complete: () => console.log('ngOnInitAllClients complet'),
         })
-      }
+        }
       
     }
 

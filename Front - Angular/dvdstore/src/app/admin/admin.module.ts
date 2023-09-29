@@ -6,12 +6,9 @@ import { FormsModule } from '@angular/forms';
 
 //Component partie admin
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
-import { HomeComponent } from './home/home.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { MovieFormComponent } from './movies/movie-form/movie-form.component';
-import { SaleFormComponent } from './sales/sale-form/sale-form.component';
-import { SaleListComponent } from './sales/sale-list/sale-list.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { GenreFormComponent } from './genres/genre-form/genre-form.component';
 import { ClientFormComponent } from './clients/client-form/client-form.component';
@@ -25,8 +22,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatPaginatorModule} from '@angular/material/paginator';
-import { MatCell, MatCellDef, MatHeaderCell, MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTableModule} from '@angular/material/table';
-import { MatSortHeader } from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
 
 
 
@@ -44,13 +41,13 @@ import { MatSortHeader } from '@angular/material/sort';
     SideMenuComponent,
     MovieListComponent,
     MovieFormComponent,
-    SaleFormComponent,
     MovieDetailComponent,
     GenreFormComponent,
     GenreListComponent,
     ClientFormComponent,
     ClientListComponent,
     ClientDetailComponent,
+    SaleDetailComponent,
 
   ],
   imports: [

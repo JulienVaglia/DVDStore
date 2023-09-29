@@ -1,6 +1,6 @@
 <h1 class="text-center mt-5 fs-2 ">Ajouter / Modifier</h1>
 
-<div class="w-75 rounded mx-auto mt-5 h-75 " style="border: 1px solid #C5A26E;">
+<div class="w-75 rounded mx-auto mt-5 h-75 shadow" style="border: 1px solid #C5A26E;">
 
     <form #movieForm="ngForm" name="movieModel" (submit)="addMovie()">
 
@@ -20,7 +20,7 @@
 
         <!-- Quantity -->
         <div class="form-floating mb-4 w-25 ms-5 shadow">
-            <input type="number" [(ngModel)]="movieModel.quantity" class="form-control" id="quantity" name="quantity" placeholder="name@example.com">
+            <input type="number" [(ngModel)]="movieModel.quantity" class="form-control" id="quantity" name="quantity" placeholder="name@example.com" required min="0">
             <label for="floatingInput">Quantité :</label>
         </div>
 
