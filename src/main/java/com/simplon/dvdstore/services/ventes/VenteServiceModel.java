@@ -47,4 +47,12 @@ public class VenteServiceModel {
         this.id_dvd = id_dvd;
         this.id_client = id_client;
     }
+
+    public VenteServiceModel(Date date, Float montant, int quantity, DvdServiceModel dvd, ClientServiceModel client) {
+        this.date = date;
+        this.montant = montant;
+        this.quantity = quantity;
+        this.dvd = dvd;
+        this.client = client;
+    }
 }

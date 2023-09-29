@@ -19,12 +19,13 @@ public class ClientRepositoryModel {
     private String nom;
     @Column(name="prenom")
     private String prenom;
-    @Column(name="addresse")
-    private String addresse;
+    @Column(name="adresse")
+    private String adresse;
 
-    public ClientRepositoryModel(String nom, String prenom, String addresse) {
+
+    public ClientRepositoryModel(String nom, String prenom, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
-        this.addresse = addresse;
+        this.adresse = adresse;
     }
 }

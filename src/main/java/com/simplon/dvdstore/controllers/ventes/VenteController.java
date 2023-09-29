@@ -38,6 +38,7 @@ public class VenteController {
         {
 
             VenteServiceModel venteServiceModel = new VenteServiceModel(
+                    venteDTO.date(),
                     venteDTO.montant(),
                     venteDTO.quantity(),
                     dvdService.findById(venteDTO.id_dvd()),
@@ -69,7 +70,7 @@ public class VenteController {
                         x.getClient().getId().get(),
                         x.getClient().getNom(),
                         x.getClient().getPrenom(),
-                        x.getClient().getAddresse());
+                        x.getClient().getAdresse());
 
                 venteGetDTOArrayList.add( new VenteGetDTO(
                         x.getId().get(),
@@ -106,7 +107,7 @@ public class VenteController {
                     venteServiceModel.getClient().getId().get(),
                     venteServiceModel.getClient().getNom(),
                     venteServiceModel.getClient().getPrenom(),
-                    venteServiceModel.getClient().getAddresse());
+                    venteServiceModel.getClient().getAdresse());
 
 
             VenteGetDTO venteGetDTO = new VenteGetDTO(
@@ -137,7 +138,6 @@ public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date
             venteDTO.montant(),
             venteDTO.quantity(),
             venteDTO.id_dvd(),
-
             venteDTO.id_client());
 
    return venteService.update(venteServiceModel);

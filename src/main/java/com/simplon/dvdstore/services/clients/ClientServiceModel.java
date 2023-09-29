@@ -14,11 +14,13 @@ public class ClientServiceModel {
     private Optional<Long> id;
     private String nom;
     private String prenom;
-    private String addresse;
+    private String adresse;
 
-    public ClientServiceModel(String nom, String prenom, String addresse) {
+    public ClientServiceModel(String nom, String prenom, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
-        this.addresse = addresse;
+        this.adresse = adresse;
     }
+
+
 }

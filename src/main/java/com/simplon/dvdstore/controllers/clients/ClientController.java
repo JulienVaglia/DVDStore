@@ -25,7 +25,7 @@ public class ClientController {
         ClientServiceModel clientServiceModel = new ClientServiceModel(
                 clientDTO.nom(),
                 clientDTO.prenom(),
-                clientDTO.addresse());
+                clientDTO.adresse());
 
                 return clientService.add(clientServiceModel);
     }
@@ -43,7 +43,7 @@ public class ClientController {
                 x.getId().get(),
                 x.getNom(),
                 x.getPrenom(),
-                x.getAddresse()));
+                x.getAdresse()));
             }
 
             return clientGetDTOArrayList;
@@ -63,7 +63,7 @@ public class ClientController {
                         clientServiceModel.getId().get(),
                         clientServiceModel.getNom(),
                         clientServiceModel.getPrenom(),
-                        clientServiceModel.getAddresse()
+                        clientServiceModel.getAdresse()
                 );
                 return new ResponseEntity<>(clientGetDTO, HttpStatus.OK);
             }
@@ -82,7 +82,7 @@ public class ClientController {
                 id,
                 clientDTO.nom(),
                 clientDTO.prenom(),
-                clientDTO.addresse());
+                clientDTO.adresse());
 
         return clientService.update(clientServiceModel);
     }

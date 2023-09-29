@@ -68,7 +68,7 @@ public class VenteService {
                     Optional.ofNullable(x.getId()),
                     x.getClientRepositoryModel().getNom(),
                     x.getClientRepositoryModel().getPrenom(),
-                    x.getClientRepositoryModel().getAddresse());
+                    x.getClientRepositoryModel().getAdresse());
 
             venteServiceModelArrayList.add((new VenteServiceModel(
                     Optional.ofNullable(x.getId()),
@@ -112,7 +112,7 @@ public class VenteService {
                     Optional.ofNullable(venteRepositoryModel.get().getClientRepositoryModel().getId()),
                     venteRepositoryModel.get().getClientRepositoryModel().getNom(),
                     venteRepositoryModel.get().getClientRepositoryModel().getPrenom(),
-                    venteRepositoryModel.get().getClientRepositoryModel().getAddresse()
+                    venteRepositoryModel.get().getClientRepositoryModel().getAdresse()
             );
 
             //Chargement des données dans la couche Vente
