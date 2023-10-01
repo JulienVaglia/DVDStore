@@ -20,7 +20,8 @@
     <div class="card mb-3 shadow ms-3 movieCard" style="width: 15rem; min-width: 10rem;" *ngFor="let dvd of dvdToShow">
         <a [routerLink]="['../movie_detail',dvd.id]">
             <img [src]="dvd.photo" class="card-img-top w-100 mx-auto mt-3">
-            <mat-icon matBadge={{dvd.quantity}} matBadgeColor="warn" matBadgeSize="medium"></mat-icon>
+            <mat-icon matBadge={{dvd.quantity}} matBadgeColor="warn" matBadgeSize="medium" class="mat-icon notranslate mat-badge"
+            aria-hidden="false"></mat-icon>
         </a>
         <div class="card-body">
             <h2 class="card-title">{{ dvd.name }}</h2>

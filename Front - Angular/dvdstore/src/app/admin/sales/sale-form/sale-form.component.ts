@@ -1,23 +1,21 @@
+//----Natives imports----
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-
 import {FormsModule} from '@angular/forms';
 import {NgFor} from '@angular/common';
 
+//----Components imports----
 import {SalesService} from 'src/app/_services/sales.service';
 import {MoviesService} from 'src/app/_services/movies.service';
 import {ClientsService} from 'src/app/_services/clients.service';
 
+//----Matérial imports----
 import {MatDatepickerModule, MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
-
-
-
 
 
 //Interface Vente

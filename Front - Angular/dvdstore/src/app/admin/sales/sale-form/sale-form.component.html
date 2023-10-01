@@ -15,7 +15,7 @@
                         <option *ngFor="let client of clients" [ngValue]="client">{{client.nom}} {{client.prenom}}
                         </option>
                     </select>
-                    <label for="floatingSelect">Choisir un Client</label>
+                    <label for="id_client">Choisir un Client</label>
                 </div>
 
                 <!-- Dvd -->
@@ -24,55 +24,36 @@
                         aria-label="Floating label select example" name="id_dvd">
                         <option *ngFor="let dvd of dvds" [ngValue]="dvd">{{dvd.name}}</option>
                     </select>
-                    <label for="floatingSelect">Choisir un DVD</label>
+                    <label for="id_dvd">Choisir un DVD</label>
                 </div>
 
                 <!-- Montant -->
                 <div class="form-floating mb-4 w-75 ms-5 shadow">
                     <input type="number" [(ngModel)]="venteModel.montant" class="form-control" id="montant"
                         placeholder="name@example.com" name="montant" required min="1">
-                    <label for="floatingInput">Montant :</label>
+                    <label for="montant">Montant :</label>
                 </div>
 
                 <!-- Quantity -->
                 <div class="form-floating mb-4 w-75 ms-5 shadow">
                     <input type="number" [(ngModel)]="venteModel.quantity" class="form-control" id="quantity"
                         placeholder="name@example.com" name="quantity" required min="1">
-                    <label for="floatingInput">Quantité :</label>
+                    <label for="quantity">Quantité :</label>
                 </div>
 
             </div>
 
-
-
-
-            <!-- DatePicker -->
-            <!-- <div class=" w-25 mx-auto">
-                <mat-card class="calendar-card mb-2 shadow" style="border: 1px solid #C5A26E;">
-                    <div class="">
-                        <mat-label>Input & change events</mat-label>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    </div>
-
-                    <input matInput [matDatepicker]="picker" (dateInput)="addEvent('input', $event)"
-                        (dateChange)="addEvent('change', $event)">
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-card>
-                <p>Date de la vente: {{venteModel.date}}</p>
-            </div> -->
-
+            
+            <!-- Date -->
             <mat-form-field style="border: 1px solid #C5A26E;" class="rounded shadow w-25 mx-auto h-25 mt-3">
-                <mat-label>Date de la vente:</mat-label>
-                <input matInput [matDatepicker]="picker" (dateInput)="addEvent('input', $event)"
-                    (dateChange)="addEvent('change', $event)">
+                <input matInput [matDatepicker]="picker" (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)" name="date">
+                <mat-label for="date">Date de la vente:</mat-label>
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
         </div>
-
-
 
         <div class="d-flex justify-content-center mb-4">
             <button type="submit" class="btn btn-outline-primary">Valider</button>
