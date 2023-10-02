@@ -12,7 +12,7 @@
         </thead>
         <tbody  *ngFor="let client of clients">
             <tr>
-                <th class="w-25" scope="row">{{client.id}}</th>
+                <td class="w-25" scope="row">{{client.id}}</td>
                 <td class="w-25">{{client.nom}}</td>
                 <td class="w-25 text-center">{{client.prenom}}</td>
                 <td class="text-end"><a [routerLink]="['/client_detail', client.id]" class="card-link btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .25rem;">Détail</a>

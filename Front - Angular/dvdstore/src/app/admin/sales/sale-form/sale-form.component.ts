@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {NgFor} from '@angular/common';
+import {NgIf} from '@angular/common';
 
 //----Components imports----
 import {SalesService} from 'src/app/_services/sales.service';
@@ -59,16 +60,15 @@ export interface ClientModel {
     FormsModule,
     NgFor,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgIf
   ],
 })
 
 
+
 export class SaleFormComponent {
 
-  constructor(private httpSale: SalesService, private route: ActivatedRoute, private http: HttpClient, private router: Router, private httpService : MoviesService,private httpClient: ClientsService ) { }
-
-  
   ventes: Array<VenteModel> = [];
   id: any = 0;
 
@@ -87,6 +87,52 @@ export class SaleFormComponent {
 
   events: string[] = [];
 
+  constructor(private httpSale: SalesService, private route: ActivatedRoute, private http: HttpClient, private router: Router, private httpService : MoviesService,private httpClient: ClientsService ) { }
+
+  ngOnInit(): void {
+
+    this.id = this.route.snapshot.paramMap.get('id')
+  console.log(this.id);
+
+    this.httpService.getAllDvd().subscribe({
+
+      next: (data) => {this.dvds = data, console.table(data);},
+      error: (err: Error) => console.log('Erreur : ' + err),
+      complete: () =>  console.log('ngOnInitAllDvds complet')
+      })
+
+
+    this.httpClient.getAllClients().subscribe({
+      next: (data) => { this.clients = data, console.table(data)},
+      error: (err: Error) => console.log('Erreur : ' + err),
+      complete: () => console.log('ngOnInitAllClients complet'),
+    })
+
+    if (this.id != null) // si un ID on charge getOneSale
+      {
+  
+        this.httpSale.getOneSale(this.id).subscribe({
+          next: (data) => { this.venteModel = data, console.table(data) },
+          error: (err: Error) => console.log('Erreur : ' + err),
+          complete: () => console.log('ngOnInitOneSale complet')
+        })
+
+      }
+    else // si pas d'ID on charge getAllSale
+      {
+          this.httpSale.getAllSale().subscribe({
+        next: (data) => { this.ventes = data, console.table(data)},
+        error: (err: Error) => console.log('Erreur : ' + err),
+        complete: () => console.log('ngOnInitAllSales complet')
+      })
+      }
+
+
+      
+    
+  }
+
+
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${type}: ${event.value}`);
   }
@@ -95,6 +141,7 @@ export class SaleFormComponent {
     addSale() {
 
       this.id = this.route.snapshot.paramMap.get('id')
+console.log(this.venteModel);
 
       if (this.id) 
           {
@@ -108,6 +155,10 @@ export class SaleFormComponent {
           }
       else
           {
+
+console.table(this.ventes);
+
+         
           this.httpSale.addSale(this.venteModel).subscribe({
       
             next: (data) => { this.venteModel = data, console.log(data), this.router.navigate(['sale_list'])},
@@ -119,45 +170,7 @@ export class SaleFormComponent {
 
     }
 
-    ngOnInit(): void {
-
-      this.id = this.route.snapshot.paramMap.get('id')
-
-      if (this.id != null) // si un ID on charge getOneSale
-        {
     
-          this.httpSale.getOneSale(this.id).subscribe({
-            next: (data) => { this.venteModel = data, console.table(data) },
-            error: (err: Error) => console.log('Erreur : ' + err),
-            complete: () => console.log('ngOnInitOneSale complet')
-          })
-
-        }
-      else // si pas d'ID on charge getAllSale
-        {
-            this.httpSale.getAllSale().subscribe({
-          next: (data) => { this.ventes = data, console.table(data)},
-          error: (err: Error) => console.log('Erreur : ' + err),
-          complete: () => console.log('ngOnInitAllSales complet')
-        })
-        }
-
-
-        this.httpService.getAllDvd().subscribe({
-
-          next: (data) => {this.dvds = data, console.table(data);},
-          error: (err: Error) => console.log('Erreur : ' + err),
-          complete: () =>  console.log('ngOnInitAllDvds complet')
-          })
-
-
-        this.httpClient.getAllClients().subscribe({
-          next: (data) => { this.clients = data, console.table(data)},
-          error: (err: Error) => console.log('Erreur : ' + err),
-          complete: () => console.log('ngOnInitAllClients complet'),
-        })
-      
-    }
 
     
 

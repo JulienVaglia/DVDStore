@@ -11,6 +11,7 @@ import { GenreFormComponent } from './genres/genre-form/genre-form.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientFormComponent } from './clients/client-form/client-form.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
 
 
 const routes: Routes = [
@@ -18,16 +19,22 @@ const routes: Routes = [
     {path: '', component: AdminLayoutComponent, children: [  // Sert de sous-routing afin d'afficher le layout (visuel) adapté à l'admin
 
       {path: '', component: HomeComponent},
+
       {path: 'movie_list', component: MovieListComponent},
       {path: 'movie_form', component: MovieFormComponent},
       {path: 'movie_form/:id', component: MovieFormComponent},
       {path: 'movie_detail/:id', component: MovieDetailComponent},
+
       {path: 'sale_list', component: SaleListComponent},
       {path: 'sale_form', component: SaleFormComponent},
+      {path: 'sale_form/:id', component: SaleFormComponent},
+      {path: 'sale_detail/:id', component: SaleDetailComponent},
+
       {path: 'client_list', component: ClientListComponent},
       {path: 'client_form', component: ClientFormComponent},
       {path: 'client_form/:id', component: ClientFormComponent},
       {path: 'client_detail/:id', component: ClientDetailComponent},
+      
       {path: 'genre_form', component: GenreFormComponent}
 
     ]}

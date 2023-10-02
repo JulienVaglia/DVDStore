@@ -15,15 +15,17 @@ import { ClientFormComponent } from './clients/client-form/client-form.component
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { GenreListComponent } from './genres/genre-list/genre-list.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
 
 //Angular Material
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
-import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
+
+
 
 
 
@@ -47,7 +49,7 @@ import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
     ClientFormComponent,
     ClientListComponent,
     ClientDetailComponent,
-    SaleDetailComponent,
+    SaleDetailComponent
 
   ],
   imports: [
