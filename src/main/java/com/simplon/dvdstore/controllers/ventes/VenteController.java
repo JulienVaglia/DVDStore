@@ -128,13 +128,14 @@ public class VenteController {
 
 // UPDATE
 @PutMapping("/{id}")
-public boolean update(@PathVariable("id") Optional<Long> id, @PathVariable("date") Date date, @RequestBody VenteDTO venteDTO){
+public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteDTO venteDTO){
 
 
 
+    //convert string to date ou trouver un type de date
     VenteServiceModel venteServiceModel = new VenteServiceModel(
             id,
-            date,
+            venteDTO.date(),
             venteDTO.montant(),
             venteDTO.quantity(),
             venteDTO.id_dvd(),

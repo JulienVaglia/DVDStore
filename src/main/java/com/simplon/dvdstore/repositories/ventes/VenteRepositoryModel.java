@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -24,8 +25,7 @@ public class VenteRepositoryModel {
     private Long id;
 
     @Column(name = "date")
-    @CreationTimestamp
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "montant")
     private Float montant;
@@ -41,14 +41,8 @@ public class VenteRepositoryModel {
     @Column(name = "quantity")
     private int quantity;
 
-    public VenteRepositoryModel(Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
-        this.montant = montant;
-        this.dvdRepositoryModel = dvdRepositoryModel;
-        this.clientRepositoryModel = clientRepositoryModel;
-        this.quantity = quantity;
-    }
 
-    public VenteRepositoryModel(Date date, Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
+    public VenteRepositoryModel(LocalDate date, Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
         this.date = date;
         this.montant = montant;
         this.dvdRepositoryModel = dvdRepositoryModel;

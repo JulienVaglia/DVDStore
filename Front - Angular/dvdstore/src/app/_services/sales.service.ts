@@ -26,26 +26,29 @@ addSale(venteModel: any, id: any = null): Observable<any>
 
 updateSale(venteModel: any, id: any = null): Observable<any> 
   {
-      return this.http.put('http://localhost:9000/ventes'+ venteModel.id, venteModel);
+      return this.http.put('http://localhost:9000/ventes/'+ venteModel.id, venteModel);
   }
 
 
 
 // READ
 
-getAllSale(): Observable<Array<VenteModel>> 
-  
+getAllSale(): Observable<Array<VenteModel>>  
 {
-
   return this.http.get('http://localhost:9000/ventes') as Observable<Array<VenteModel>>
-
 }
 
-getOneSale(id: number): Observable<Array<VenteModel>> 
 
+getOneSale(id: number): Observable<any> 
 {
   return this.http.get('http://localhost:9000/ventes/'+id) as Observable<Array<VenteModel>>
 }
+
+
+// getSalesByClient(id_client: number): Observable<any>
+// {
+//  return this.http.
+// }
 
 
 

@@ -33,6 +33,7 @@ public class VenteService {
 
         VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
 
+                venteServiceModel.getDate(),
                 venteServiceModel.getMontant(),
                 dvdRepositoryModel.get(),
                 clientRepositoryModel.get(),
@@ -65,7 +66,7 @@ public class VenteService {
                     x.getDvdRepositoryModel().getDescription());
 
             ClientServiceModel clientServiceModel = new ClientServiceModel(
-                    Optional.ofNullable(x.getId()),
+                    Optional.ofNullable(x.getClientRepositoryModel().getId()),
                     x.getClientRepositoryModel().getNom(),
                     x.getClientRepositoryModel().getPrenom(),
                     x.getClientRepositoryModel().getAdresse());
@@ -87,7 +88,6 @@ public class VenteService {
     public VenteServiceModel findById(Long id) {
 
         Optional<VenteRepositoryModel> venteRepositoryModel = venteRepository.findById(id);
-
 
         if ( venteRepositoryModel.isEmpty())
         {

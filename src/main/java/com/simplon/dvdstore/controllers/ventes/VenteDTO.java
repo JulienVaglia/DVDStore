@@ -1,8 +1,9 @@
 package com.simplon.dvdstore.controllers.ventes;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public record VenteDTO (Date date, Float montant, Long id_dvd, Long id_client, int quantity) {
+public record VenteDTO (LocalDate date, Float montant, Long id_dvd, Long id_client, int quantity) {
 
 
 

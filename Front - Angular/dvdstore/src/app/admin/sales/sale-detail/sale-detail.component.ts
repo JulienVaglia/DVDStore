@@ -7,7 +7,7 @@ import { ClientModel, DvdModel } from '../sale-form/sale-form.component';
 //Interface Vente
 export interface VenteModel {
   id? : number,
-  date: string,
+  date: Date,
   montant: number,
   id_dvd: number,
   id_client: number,

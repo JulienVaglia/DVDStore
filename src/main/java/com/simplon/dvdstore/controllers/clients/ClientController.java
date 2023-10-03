@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers.clients;
 
+import com.simplon.dvdstore.repositories.clients.ClientRepository;
 import com.simplon.dvdstore.services.clients.ClientService;
 import com.simplon.dvdstore.services.clients.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class ClientController {
 
     @Autowired
     ClientService clientService;
+    @Autowired
+    ClientRepository clientRepository;
 
 //CREATE
     @PostMapping
@@ -72,6 +75,9 @@ public class ClientController {
                 return ResponseEntity.badRequest().body(null);
             }
     }
+
+
+
 
 
 //UPDATE

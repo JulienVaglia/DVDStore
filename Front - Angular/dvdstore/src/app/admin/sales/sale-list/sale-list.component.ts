@@ -5,25 +5,24 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { SalesService } from 'src/app/_services/sales.service';
 import { CommonModule } from '@angular/common';
-import { SaleFormComponent } from '../sale-form/sale-form.component';
 
 export interface VenteModel {
-  id? : number,
-  date: string,
+  id?: number,
+  date: Date,
   montant: number,
   id_dvd: number,
   id_client: number,
   quantity: number;
 }
 
-const ELEMENT_DATA: VenteModel[] = 
-[{
-  date:"",
-  montant:0,
-  id_dvd: 0, 
-  id_client: 0, 
-  quantity: 0
-}];
+const ELEMENT_DATA: VenteModel[] =
+  [{
+    date: new Date(),
+    montant: 0,
+    id_dvd: 0,
+    id_client: 0,
+    quantity: 0
+  }];
 
 
 @Component({
@@ -38,31 +37,24 @@ const ELEMENT_DATA: VenteModel[] =
   ]
 
 })
-export class SaleListComponent implements AfterViewInit
-{
+export class SaleListComponent implements AfterViewInit {
 
-  constructor( private http : SalesService, private route: ActivatedRoute, private httpService: SalesService ){}
-
-  dataSource : any = []
+  dataSource: any = []
   ventes: VenteModel[] = [];
-  venteToShow: Array<VenteModel> = [];
+
+
   displayedColumns: string[] = ['Date', 'Montant', 'DVD', 'Client', 'Quantité', 'Détails'];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
+  constructor( private route: ActivatedRoute, private http: SalesService) { }
+
+
   ngOnInit(): void {
-    
+
     this.http.getAllSale().subscribe({
-
-    next: (data) => {this.ventes = data, console.table(data);},
-    error: (err: Error) => console.log('Erreur : ' + err),
-    complete: () =>  this.venteToShow=this.ventes
-    })
-
-     this.httpService.getAllSale().subscribe({
-      next: (data) => 
-      { this.ventes = data.reverse(), // Afficher la dernière entrée en premier dans le tableau gâce a ".reverse()"
+      next: (data) => {this.ventes = data.reverse(), // Afficher la dernière entrée en premier dans le tableau gâce a ".reverse()"
         console.table(data)
         this.dataSource = new MatTableDataSource<VenteModel>(this.ventes);
         this.dataSource.paginator = this.paginator;
@@ -71,18 +63,22 @@ export class SaleListComponent implements AfterViewInit
       error: (err: Error) => console.log('Erreur : ' + err),
       complete: () => console.log()
     })
-    ;  
-  }    
+      ;
+  }
   //--------------- Tableaux Matérials ---------------
   ngAfterViewInit() {
 
-  }  
-  
+  }
 
 
 
 
 
+/*
+
+                            
+                            
+                            [(ngModel)]="venteModel.id_client"*/
 
 }
 
