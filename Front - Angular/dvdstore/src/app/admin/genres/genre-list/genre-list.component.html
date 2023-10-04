@@ -1,0 +1,19 @@
+<div>
+    <table class="table mx-auto w-75">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th class="w-100 text-center" scope="col">Genre</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let genre of genres">
+            <tr>
+                <th scope="row">{{genre.id}}</th>
+                <td class="text-center">{{genre.genre}}</td>
+                <td><a (click)="deleteGenre(genre.id)" class="card-link btn btn-outline-danger btn-sm">Supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

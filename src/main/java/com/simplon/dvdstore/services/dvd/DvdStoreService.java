@@ -26,7 +26,13 @@ public class DvdStoreService {
                     dvdServiceModel.getPhoto(),
                     dvdServiceModel.getDescription());
 
-            DvdRepositoryModel dvdRepositoryModelReturned = dvdStoreRepository.save( dvdRepositoryModel);
+            DvdRepositoryModel dvdRepositoryModelReturned = null;
+            try{
+                dvdRepositoryModelReturned = dvdStoreRepository.save( dvdRepositoryModel);
+            }
+            catch (Exception e ) {
+                System.out.println(e.getMessage());
+            }
 
             return dvdRepositoryModelReturned != null ;
         }

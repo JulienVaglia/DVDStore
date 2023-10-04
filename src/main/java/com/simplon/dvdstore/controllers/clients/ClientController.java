@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers.clients;
 
+import com.simplon.dvdstore.repositories.clients.ClientRepository;
 import com.simplon.dvdstore.services.clients.ClientService;
 import com.simplon.dvdstore.services.clients.ClientServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class ClientController {
 
     @Autowired
     ClientService clientService;
+    @Autowired
+    ClientRepository clientRepository;
 
 //CREATE
     @PostMapping
@@ -25,7 +28,7 @@ public class ClientController {
         ClientServiceModel clientServiceModel = new ClientServiceModel(
                 clientDTO.nom(),
                 clientDTO.prenom(),
-                clientDTO.addresse());
+                clientDTO.adresse());
 
                 return clientService.add(clientServiceModel);
     }
@@ -43,7 +46,7 @@ public class ClientController {
                 x.getId().get(),
                 x.getNom(),
                 x.getPrenom(),
-                x.getAddresse()));
+                x.getAdresse()));
             }
 
             return clientGetDTOArrayList;
@@ -63,7 +66,7 @@ public class ClientController {
                         clientServiceModel.getId().get(),
                         clientServiceModel.getNom(),
                         clientServiceModel.getPrenom(),
-                        clientServiceModel.getAddresse()
+                        clientServiceModel.getAdresse()
                 );
                 return new ResponseEntity<>(clientGetDTO, HttpStatus.OK);
             }
@@ -74,6 +77,9 @@ public class ClientController {
     }
 
 
+
+
+
 //UPDATE
     @PutMapping("/{id}")
     public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody ClientDTO clientDTO){
@@ -82,7 +88,7 @@ public class ClientController {
                 id,
                 clientDTO.nom(),
                 clientDTO.prenom(),
-                clientDTO.addresse());
+                clientDTO.adresse());
 
         return clientService.update(clientServiceModel);
     }

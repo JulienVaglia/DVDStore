@@ -1,0 +1,23 @@
+<h1 class="text-center mt-5 fs-2 ">Liste des clients</h1>
+<div class="w-75 rounded mx-auto mt-5 h-75 " style="border: 1px solid #C5A26E;">
+    <table class="table mt-5 mx-auto w-75">
+        <thead>
+            <tr>
+                <th class="w-25" scope="col">ID</th>
+                <th class="w-25" scope="col">Nom</th>
+                <th class="w-25 text-center" scope="col">Prénom</th>
+                
+                <th class="text-end" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody  *ngFor="let client of clients">
+            <tr>
+                <td class="w-25" scope="row">{{client.id}}</td>
+                <td class="w-25">{{client.nom}}</td>
+                <td class="w-25 text-center">{{client.prenom}}</td>
+                <td class="text-end"><a [routerLink]="['/client_detail', client.id]" class="card-link btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .25rem;">Détail</a>
+</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

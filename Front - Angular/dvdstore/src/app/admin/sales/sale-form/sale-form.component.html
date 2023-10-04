@@ -1,1 +1,67 @@
-<p>sale-form works!</p>
+<h1 class="text-center mt-5 fs-2 ">Ajouter / Modifier</h1>
+
+<div class="w-75 rounded mx-auto mt-5 shadow" style="border: 1px solid #C5A26E;">
+
+    <form #saleForm="ngForm" name="venteModel" (submit)="addSale()" class="mt-4">
+
+        <div class="d-flex flex-wrap mb-5">
+
+            <div class="w-50">
+
+
+                <!-- Client -->
+                <div class="form-floating mt-3 w-100 ms-5 shadow">
+                    <select class="form-select" id="id_client" aria-label="Floating label select example"
+                        name="id_client" [(ngModel)]="venteModel.id_client">
+                        <option *ngFor="let client of clients" [ngValue]="client.id">
+                            {{ client.nom }} {{client.prenom}}
+                        </option>
+                    </select>
+                    <label for="id_client">Choisir un Client</label>
+
+                </div>
+                <small class="text-danger ms-5" *ngIf="!venteModel.client">* Required</small>
+
+                
+                <!-- Dvd -->
+                <div class="form-floating mt-4 w-100 ms-5 shadow">
+                    <select [(ngModel)]="venteModel.id_dvd" class="form-select" id="id_dvd"
+                        aria-label="Floating label select example" name="id_dvd" required="">
+                        <option *ngFor="let dvd of dvds" [ngValue]="dvd.id">{{dvd.name}}</option>
+                    </select>
+                    <label for="id_dvd">Choisir un DVD</label>
+                </div>
+                <small class="text-danger ms-5" *ngIf="!venteModel.id_dvd">* Required</small>
+
+
+                <!-- Quantity -->
+                <div class="form-floating mt-4 w-75 ms-5 shadow">
+                    <input type="number" [(ngModel)]="venteModel.quantity" class="form-control" id="quantity"
+                        placeholder="name@example.com" name="quantity" required min="1">
+                    <label for="quantity">Quantité :</label>
+
+                </div>
+                <small class="text-danger ms-5" *ngIf="!venteModel.quantity">* Required</small>
+
+            </div>
+
+
+            <!-- Date -->
+            <mat-form-field style="border: 1px solid #C5A26E;" class="rounded shadow w-25 mx-auto h-25 mt-3">
+                <input matInput [matDatepicker]="picker" (dateInput)="addEvent('input', $event)"
+                    (dateChange)="addEvent('change', $event)" name="date" [(ngModel)]="venteModel.date" name="date">
+                <mat-label for="date">Date de la vente:</mat-label>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <small class="text-danger" *ngIf="!venteModel.date">* Required</small>
+            </mat-form-field>
+
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+            <button type="submit" class="btn btn-outline-primary">Valider</button>
+        </div>
+
+    </form>
+</div>

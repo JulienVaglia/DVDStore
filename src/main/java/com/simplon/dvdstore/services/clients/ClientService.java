@@ -21,7 +21,7 @@ public class ClientService {
         ClientRepositoryModel clientRepositoryModel = new ClientRepositoryModel(
                 clientServiceModel.getNom(),
                 clientServiceModel.getPrenom(),
-                clientServiceModel.getAddresse());
+                clientServiceModel.getAdresse());
 
         ClientRepositoryModel clientRepositoryModelReturned = clientRepository.save(clientRepositoryModel);
 
@@ -41,7 +41,7 @@ public ArrayList<ClientServiceModel> findAll()
                 Optional.ofNullable(x.getId()),
                 x.getNom(),
                 x.getPrenom(),
-                x.getAddresse()));
+                x.getAdresse()));
             }
             return clientServiceModelArrayList;
         }
@@ -62,7 +62,7 @@ public ArrayList<ClientServiceModel> findAll()
                         Optional.ofNullable(clientRepositoryModel.get().getId()),
                         clientRepositoryModel.get().getNom(),
                         clientRepositoryModel.get().getPrenom(),
-                        clientRepositoryModel.get().getAddresse());
+                        clientRepositoryModel.get().getAdresse());
             }
     }
 
@@ -76,7 +76,7 @@ public ArrayList<ClientServiceModel> findAll()
                     clientServiceModel.getId().get(),
                     clientServiceModel.getNom(),
                     clientServiceModel.getPrenom(),
-                    clientServiceModel.getAddresse()
+                    clientServiceModel.getAdresse()
             );
 
             ClientRepositoryModel updateClientRepositoryModel =  clientRepository.save(clientRepositoryModel);

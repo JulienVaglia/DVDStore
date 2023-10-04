@@ -1,10 +1,27 @@
+<!-- Bar filtre genre de film -->
+
+<ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm object-fit-contain w-50 mx-auto mb-5 mt-4" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-nav-pills-link-active-black); --bs-nav-pills-link-active-bg: var(--bs-white); background-color: #C5A26E;">
+    <li>
+        <button (click)="ngOnInit()" class="nav-link active rounded-5" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Tous</button>   
+    </li> 
+    <li class="nav-item" role="presentation" *ngFor="let val of genres">
+        <button (click)="choixGenre(''+val.genre)" class="nav-link rounded-5" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+            {{val.genre}}
+        </button>
+    </li>
+</ul>
+
+
+
+<!-- Cards des films -->
+
 <div class="d-flex flex-wrap">
 
-
-    <div class="card mb-3 shadow ms-3" style="width: 15rem; min-width: 10rem;" *ngFor="let dvd of dvds">
+    <div class="card mb-3 shadow ms-3 movieCard" style="width: 15rem; min-width: 10rem;" *ngFor="let dvd of dvdToShow">
         <a [routerLink]="['../movie_detail',dvd.id]">
             <img [src]="dvd.photo" class="card-img-top w-100 mx-auto mt-3">
-            <mat-icon matBadge={{dvd.quantity}} matBadgeColor="warn" matBadgeSize="medium"></mat-icon>
+            <mat-icon matBadge={{dvd.quantity}} matBadgeColor="warn" matBadgeSize="medium" class="mat-icon notranslate mat-badge"
+            aria-hidden="false"></mat-icon>
         </a>
         <div class="card-body">
             <h2 class="card-title">{{ dvd.name }}</h2>

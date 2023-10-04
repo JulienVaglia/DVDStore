@@ -28,6 +28,7 @@ public class DvdStoreController {
     @PostMapping
     public boolean add( @RequestBody DvdStoreDTO dvdStoreDTO )
         {
+            System.out.println(dvdStoreDTO.toString());
             DvdServiceModel dvdServiceModel = new DvdServiceModel(
                     dvdStoreDTO.name(),
                     dvdStoreDTO.genre(),

@@ -5,6 +5,8 @@ import com.simplon.dvdstore.services.dvd.DvdServiceModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -14,7 +16,7 @@ import java.util.Optional;
 public class VenteServiceModel {
 
     private Optional<Long> id;
-    private Date date;
+    private LocalDate date;
     private Float montant;
     private int quantity;
     private DvdServiceModel dvd;
@@ -22,15 +24,7 @@ public class VenteServiceModel {
     private Long id_dvd;
     private Long id_client;
 
-
-    public VenteServiceModel(Float montant, int quantity, DvdServiceModel dvd, ClientServiceModel client) {
-        this.montant = montant;
-        this.quantity = quantity;
-        this.dvd = dvd;
-        this.client = client;
-    }
-
-    public VenteServiceModel(Optional<Long> id, Date date, Float montant, int quantity, DvdServiceModel dvd, ClientServiceModel client) {
+    public VenteServiceModel(Optional<Long> id, LocalDate date, Float montant, int quantity, DvdServiceModel dvd, ClientServiceModel client) {
         this.id = id;
         this.date = date;
         this.montant = montant;
@@ -39,12 +33,20 @@ public class VenteServiceModel {
         this.client = client;
     }
 
-    public VenteServiceModel(Optional<Long> id, Date date, Float montant, int quantity, Long id_dvd, Long id_client) {
+    public VenteServiceModel(Optional<Long> id, LocalDate date, Float montant, int quantity, Long id_dvd, Long id_client) {
         this.id = id;
         this.date = date;
         this.montant = montant;
         this.quantity = quantity;
         this.id_dvd = id_dvd;
         this.id_client = id_client;
+    }
+
+    public VenteServiceModel(LocalDate date, Float montant, int quantity, DvdServiceModel dvd, ClientServiceModel client) {
+        this.date = date;
+        this.montant = montant;
+        this.quantity = quantity;
+        this.dvd = dvd;
+        this.client = client;
     }
 }

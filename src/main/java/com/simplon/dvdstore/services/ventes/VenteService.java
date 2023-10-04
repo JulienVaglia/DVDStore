@@ -33,6 +33,7 @@ public class VenteService {
 
         VenteRepositoryModel venteRepositoryModel = new VenteRepositoryModel(
 
+                venteServiceModel.getDate(),
                 venteServiceModel.getMontant(),
                 dvdRepositoryModel.get(),
                 clientRepositoryModel.get(),
@@ -65,10 +66,10 @@ public class VenteService {
                     x.getDvdRepositoryModel().getDescription());
 
             ClientServiceModel clientServiceModel = new ClientServiceModel(
-                    Optional.ofNullable(x.getId()),
+                    Optional.ofNullable(x.getClientRepositoryModel().getId()),
                     x.getClientRepositoryModel().getNom(),
                     x.getClientRepositoryModel().getPrenom(),
-                    x.getClientRepositoryModel().getAddresse());
+                    x.getClientRepositoryModel().getAdresse());
 
             venteServiceModelArrayList.add((new VenteServiceModel(
                     Optional.ofNullable(x.getId()),
@@ -87,7 +88,6 @@ public class VenteService {
     public VenteServiceModel findById(Long id) {
 
         Optional<VenteRepositoryModel> venteRepositoryModel = venteRepository.findById(id);
-
 
         if ( venteRepositoryModel.isEmpty())
         {
@@ -112,7 +112,7 @@ public class VenteService {
                     Optional.ofNullable(venteRepositoryModel.get().getClientRepositoryModel().getId()),
                     venteRepositoryModel.get().getClientRepositoryModel().getNom(),
                     venteRepositoryModel.get().getClientRepositoryModel().getPrenom(),
-                    venteRepositoryModel.get().getClientRepositoryModel().getAddresse()
+                    venteRepositoryModel.get().getClientRepositoryModel().getAdresse()
             );
 
             //Chargement des données dans la couche Vente
