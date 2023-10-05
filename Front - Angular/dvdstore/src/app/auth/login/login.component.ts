@@ -3,10 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
 
 //Interface LogIn
-export interface LogInModel {
-  id?: number,
+ export interface ICredential {
   username: string,
   password: string;
+}
+
+export interface IToken {
+  username: string,
+  token: string;
 }
 
 @Component({
@@ -19,12 +23,13 @@ export interface LogInModel {
 })
 export class LoginComponent {
 
-loginModel: any =
+loginModel: ICredential =
   {
     username: '',
     password: '',
   }
-userLogged: any =
+
+userLogged: IToken =
   {
     username: '',
     token: '',
@@ -33,20 +38,17 @@ userLogged: any =
 constructor(private httpLogIn: AuthService){}
 
 
-logIn()
-{
-  console.log(this.loginModel);
-  
-  this.httpLogIn.login(this.loginModel).subscribe({
+logIn() {
 
+  this.httpLogIn.login(this.loginModel).subscribe({
     next: (data) => { 
-      this.userLogged.username = data.user.login, 
-      this.userLogged.token = data.token,
-      console.table(data), this.httpLogIn.setToken(this.userLogged) },
+      this.userLogged.username = data.username; 
+      this.userLogged.token = data.token;
+      this.httpLogIn.setToken(this.userLogged.token); // Passer uniquement le token
+    },
     error: (err: Error) => console.log('Erreur : ' + err),
     complete: () => { console.log('LogIn réussi') }
-
-  })
+  });
 }
 
 }
