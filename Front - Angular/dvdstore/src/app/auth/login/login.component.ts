@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
 
 //Interface LogIn
@@ -35,16 +36,17 @@ userLogged: IToken =
     token: '',
   }
 
-constructor(private httpLogIn: AuthService){}
+constructor(private httpLogIn: AuthService, private route: Router){}
 
 
 logIn() {
 
   this.httpLogIn.login(this.loginModel).subscribe({
     next: (data) => { 
-      this.userLogged.username = data.username; 
+      this.userLogged.username = this.loginModel.username; 
       this.userLogged.token = data.token;
-      this.httpLogIn.setToken(this.userLogged.token); // Passer uniquement le token
+      this.httpLogIn.setToken(this.userLogged); 
+      this.route.navigate([''])
     },
     error: (err: Error) => console.log('Erreur : ' + err),
     complete: () => { console.log('LogIn réussi') }

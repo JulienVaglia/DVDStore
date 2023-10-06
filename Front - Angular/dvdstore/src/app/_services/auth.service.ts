@@ -24,20 +24,31 @@ export class AuthService {
 // Gestion du token :
 
   // Enregistrer le token dans le sessionStorage
-  setToken(userLogged: string) {
+  setToken(userLogged: IToken) {
     
-    sessionStorage.setItem('authToken', JSON.stringify(userLogged   ));
+    sessionStorage.setItem('authToken', JSON.stringify(userLogged));
     console.log(userLogged);
     
   }
 
   // Obtenenir le token depuis le sessionStorage
-  getToken(): string | null {
-    return sessionStorage.getItem('authToken');
+  isLogged(): boolean {
+    const token =  sessionStorage.getItem('authToken');
+    return !! token  // Permet en cas de retour de données de le transformer en true et au contraire si null de le transformer en false afin de communiquer facilement avec le guard qui attends un booleen
+
   }
 
+  getToken(): IToken | null {
+    const authToken = sessionStorage.getItem('authToken');
+    return authToken ? JSON.parse(authToken) : null;
+  }
+
+
   // Supprimer le token du sessionStorage lors de la déconnexion
-  logout() {
-    sessionStorage.removeItem('authToken');
+  logout(): boolean {
+    const token = sessionStorage.removeItem('authToken');
+    return true
+    
+    
   }
 }

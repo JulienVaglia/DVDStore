@@ -18,12 +18,14 @@ import { ClientDetailComponent } from './clients/client-detail/client-detail.com
 import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
 
 //Angular Material
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import { MatIconModule} from '@angular/material/icon';
+import { MatBadgeModule} from '@angular/material/badge';
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
+import { HomeComponent } from './home/home.component';
+import { SaleListComponent } from './sales/sale-list/sale-list.component';
 
 
 
@@ -39,7 +41,7 @@ import {MatTableModule} from '@angular/material/table';
   declarations: [
     NavbarComponent,
     AdminLayoutComponent,
-    // HomeComponent, déclaration en stand-alone
+    HomeComponent,
     SideMenuComponent,
     MovieListComponent,
     MovieFormComponent,
@@ -63,6 +65,7 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatPaginatorModule,
     MatTableModule,
+    SaleListComponent
   ],
 })
 export class AdminModule {
