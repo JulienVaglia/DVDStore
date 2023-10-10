@@ -26,6 +26,8 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import { HomeComponent } from './home/home.component';
 import { SaleListComponent } from './sales/sale-list/sale-list.component';
+import { ProfilComponent } from './profil/profil/profil.component';
+import { ProfilFormComponent } from './profil/profil-form/profil-form.component';
 
 
 
@@ -51,7 +53,9 @@ import { SaleListComponent } from './sales/sale-list/sale-list.component';
     ClientFormComponent,
     ClientListComponent,
     ClientDetailComponent,
-    SaleDetailComponent
+    SaleDetailComponent,
+    ProfilComponent,
+    ProfilFormComponent
 
   ],
   imports: [

@@ -13,6 +13,8 @@ import { ClientFormComponent } from './clients/client-form/client-form.component
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
 import { authGuard } from '../_helpers/auth.guard';
+import { ProfilComponent } from './profil/profil/profil.component';
+import { ProfilFormComponent } from './profil/profil-form/profil-form.component';
 
 
 const routes: Routes = [
@@ -36,7 +38,10 @@ const routes: Routes = [
       {path: 'client_form/:id', component: ClientFormComponent, canActivate: [authGuard] },
       {path: 'client_detail/:id', component: ClientDetailComponent, canActivate: [authGuard] },
       
-      {path: 'genre_form', component: GenreFormComponent, canActivate: [authGuard] }
+      {path: 'genre_form', component: GenreFormComponent, canActivate: [authGuard] },
+
+      {path: 'profil', component: ProfilComponent, canActivate: [authGuard] },
+      {path: 'profil_form/:id', component: ProfilFormComponent, canActivate: [authGuard] }
 
     ]}
 ];
