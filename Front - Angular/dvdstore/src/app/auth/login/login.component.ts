@@ -43,6 +43,8 @@ logIn() {
 
   this.httpLogIn.login(this.loginModel).subscribe({
     next: (data) => { 
+      console.log(data);
+      
       this.userLogged.username = this.loginModel.username; 
       this.userLogged.token = data.token;
       this.httpLogIn.setToken(this.userLogged); 

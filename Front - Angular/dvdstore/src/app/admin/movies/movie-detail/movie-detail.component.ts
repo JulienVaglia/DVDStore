@@ -29,9 +29,12 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() 
     {
+      console.log(this.dvd);
       this.id = this.route.snapshot.paramMap.get('id');
-      this.http.get('http://localhost:9000/dvds/' + this.id).subscribe({
+      this.httpMovie.getOneDvd(this.id).subscribe({
 
+
+        
         next: (data) => { this.dvd = data, console.table(data) },
         error: (err: Error) => console.log('Erreur : ' + err),
         complete: () => console.log('ngOnInit complet')

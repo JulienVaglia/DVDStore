@@ -3,9 +3,11 @@ package com.simplon.dvdstore.controllers.clients;
 import com.simplon.dvdstore.repositories.clients.ClientRepository;
 import com.simplon.dvdstore.services.clients.ClientService;
 import com.simplon.dvdstore.services.clients.ClientServiceModel;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/clients")
+@RequestMapping("/api/clients")
 public class ClientController {
 
     @Autowired
@@ -22,6 +24,7 @@ public class ClientController {
     ClientRepository clientRepository;
 
 //CREATE
+@PreAuthorize("hasAuthority('admin')")
     @PostMapping
     public boolean add( @RequestBody ClientDTO clientDTO )
     {
@@ -35,6 +38,7 @@ public class ClientController {
 
 
 //GET ALL
+
     @GetMapping
     public ArrayList<ClientGetDTO> findAll()
         {
@@ -81,6 +85,7 @@ public class ClientController {
 
 
 //UPDATE
+@PreAuthorize("hasAuthority('admin')")
     @PutMapping("/{id}")
     public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody ClientDTO clientDTO){
 
@@ -95,6 +100,7 @@ public class ClientController {
 
 
 //DELETE ONE
+@PreAuthorize("hasAuthority('admin')")
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") Long id)
     {
@@ -103,6 +109,7 @@ public class ClientController {
 
 
 //DELETE ALL
+@PreAuthorize("hasAuthority('admin')")
     @DeleteMapping("/")
     public boolean deleteAll()
     {

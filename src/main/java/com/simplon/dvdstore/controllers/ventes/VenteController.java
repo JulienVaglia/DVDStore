@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,9 +18,10 @@ import java.util.Date;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("ventes")
+@RequestMapping("api/ventes")
 @NoArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
+@PreAuthorize("hasAuthority('admin')")
 public class VenteController {
 
 
@@ -34,6 +36,7 @@ public class VenteController {
 
 // Create
     @PostMapping
+    @PreAuthorize("hasAuthority('admin')")
     public boolean add (@RequestBody VenteDTO venteDTO)
         {
 
@@ -50,6 +53,7 @@ public class VenteController {
 
 //GET ALL
     @GetMapping
+    @PreAuthorize("hasAuthority('admin')")
     public ArrayList<VenteGetDTO> findAll()
         {
             ArrayList<VenteGetDTO> venteGetDTOArrayList = new ArrayList<>();
@@ -128,6 +132,7 @@ public class VenteController {
 
 // UPDATE
 @PutMapping("/{id}")
+@PreAuthorize("hasAuthority('admin')")
 public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteDTO venteDTO){
 
 
@@ -148,6 +153,7 @@ public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteD
 
 //DELETE ONE
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean delete(@PathVariable("id") Long id)
         {
             return venteService.delete(id);
@@ -156,6 +162,7 @@ public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteD
 
 //DELETE ALL
     @DeleteMapping("/")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean deleteAll()
         {
             return venteService.deleteAll();

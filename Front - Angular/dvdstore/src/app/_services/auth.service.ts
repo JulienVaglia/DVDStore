@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICredential, IToken } from '../auth/login/login.component';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ export class AuthService {
 
 
 // LogIn
-
-  login(credentials: ICredential): Observable<IToken> {
-    return this.http.post<IToken>('http://localhost:9000/authorize', credentials);
+  
+  login(credentials: ICredential): Observable<IToken> 
+  {
+    return this.http.post<IToken>( environment.BASE_URL + 'authorize', credentials);
   }
 
 

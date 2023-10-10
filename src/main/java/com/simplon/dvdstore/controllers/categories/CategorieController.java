@@ -5,6 +5,7 @@ import com.simplon.dvdstore.services.categories.CategorieServiceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class CategorieController {
 
     @Autowired
@@ -20,6 +21,7 @@ public class CategorieController {
 
     //CREATE
     @PostMapping
+    @PreAuthorize("hasAuthority('admin')")
     public boolean add( @RequestBody CategorieDTO categorieDTO )
     {
         CategorieServiceModel categorieServiceModel = new CategorieServiceModel(
@@ -48,6 +50,7 @@ public class CategorieController {
 
 
     //GET ONE
+    @PreAuthorize("hasAuthority('admin')")
     @GetMapping("/{id}")
     public ResponseEntity<CategorieGetDTO> findById(@PathVariable Long id){
 
@@ -70,6 +73,7 @@ public class CategorieController {
 
     //UPDATE
     @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody CategorieDTO categorieDTO){
 
         CategorieServiceModel categorieServiceModel = new CategorieServiceModel(
@@ -83,6 +87,7 @@ public class CategorieController {
 
     //DELETE ONE
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean delete(@PathVariable("id") Long id)
     {
         return categorieService.delete(id);
@@ -91,6 +96,7 @@ public class CategorieController {
 
     //DELETE ALL
     @DeleteMapping("/")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean deleteAll()
     {
         return categorieService.deleteAll();

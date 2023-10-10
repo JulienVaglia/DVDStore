@@ -40,7 +40,7 @@ public class JwtUserServiceImpl implements JwtUserService {
             UsernameNotFoundException {
         Owner owner = ownerRepository.findByLogin(username);
         if (owner == null) {
-            throw new UsernameNotFoundException("The owner could not be found");
+            throw new UsernameNotFoundException("Compte introuvable");
         }
         return owner;
     }

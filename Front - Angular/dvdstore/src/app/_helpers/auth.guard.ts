@@ -5,15 +5,11 @@ import { AuthService } from '../_services/auth.service';
 
 export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   
-  if (inject(AuthService).isLogged()) {
+  if (inject(AuthService).isLogged()) { // inject remplace import{} + constructeur dans la classe guard
     console.log("true");
     return true
-    
-
   }
-  console.log("false");
   
   inject(Router).navigate(['/auth/login']);
   return false
-  // return  inject(Router).navigate(['/auth/login']);
 };

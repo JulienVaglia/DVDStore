@@ -80,7 +80,7 @@ export class MovieFormComponent {
 
     if (this.id != null) {
 
-      this.http.get('http://localhost:9000/dvds/' + this.id).subscribe({
+      this.httpMovie.getOneDvd(this.id).subscribe({
 
         next: (data) => { this.movieModel = data, console.table(data) },
         error: (err: Error) => console.log('Erreur : ' + err),

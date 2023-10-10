@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.controllers.dvd;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.simplon.dvdstore.exceptions.NotFoundExection;
 import com.simplon.dvdstore.services.dvd.DvdServiceModel;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 
 @RestController // donnees json ou xml
-@RequestMapping("dvds")
+@RequestMapping("api/dvds")
 @NoArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 public class DvdStoreController {
@@ -26,6 +27,7 @@ public class DvdStoreController {
 
 // CREATE
     @PostMapping
+    @PreAuthorize("hasAuthority('admin')")
     public boolean add( @RequestBody DvdStoreDTO dvdStoreDTO )
         {
             System.out.println(dvdStoreDTO.toString());
@@ -94,6 +96,7 @@ public class DvdStoreController {
 
 // UPDATE
     @PutMapping ("/{id}")
+    @PreAuthorize("hasAuthority('admin')")
     public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody DvdStoreDTO dvdStoreDTO)
         {
             // mapper dto en service
@@ -113,6 +116,7 @@ public class DvdStoreController {
 
 // DELETE ONE
 @DeleteMapping("/{id}")
+@PreAuthorize("hasAuthority('admin')")
 public boolean delete(@PathVariable("id") Long id)
     {
         return dvdStoreService.delete(id);
@@ -121,6 +125,7 @@ public boolean delete(@PathVariable("id") Long id)
 
 // DELETE ALL
 @DeleteMapping("/")
+@PreAuthorize("hasAuthority('admin')")
 public String deleteAll()
     {
         return dvdStoreService.deleteAll();
