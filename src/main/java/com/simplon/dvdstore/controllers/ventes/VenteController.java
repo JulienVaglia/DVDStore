@@ -24,7 +24,6 @@ import java.util.Optional;
 @PreAuthorize("hasAuthority('admin')")
 public class VenteController {
 
-
     @Autowired
     VenteService venteService;
     @Autowired
