@@ -13,16 +13,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Client controller.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/clients")
 public class ClientController {
 
+    /**
+     * The Client service.
+     */
     @Autowired
     ClientService clientService;
+    /**
+     * The Client repository.
+     */
     @Autowired
     ClientRepository clientRepository;
 
+    /**
+     * Add boolean.
+     *
+     * @param clientDTO the client dto
+     * @return the boolean
+     */
 //CREATE
 @PreAuthorize("hasAuthority('admin')")
     @PostMapping
@@ -39,6 +54,11 @@ public class ClientController {
 
 //GET ALL
 
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
     @GetMapping
     public ArrayList<ClientGetDTO> findAll()
         {
@@ -58,6 +78,12 @@ public class ClientController {
         }
 
 
+    /**
+     * Find by id response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
 //GET ONE
     @GetMapping("/{id}")
     public ResponseEntity<ClientGetDTO> findById(@PathVariable Long id){
@@ -81,9 +107,13 @@ public class ClientController {
     }
 
 
-
-
-
+    /**
+     * Update boolean.
+     *
+     * @param id        the id
+     * @param clientDTO the client dto
+     * @return the boolean
+     */
 //UPDATE
 @PreAuthorize("hasAuthority('admin')")
     @PutMapping("/{id}")
@@ -99,6 +129,12 @@ public class ClientController {
     }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 //DELETE ONE
 @PreAuthorize("hasAuthority('admin')")
     @DeleteMapping("/{id}")
@@ -108,6 +144,11 @@ public class ClientController {
     }
 
 
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
 //DELETE ALL
 @PreAuthorize("hasAuthority('admin')")
     @DeleteMapping("/")

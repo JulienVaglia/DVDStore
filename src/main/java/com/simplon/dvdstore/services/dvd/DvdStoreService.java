@@ -8,13 +8,25 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Dvd store service.
+ */
 @Service
 public class DvdStoreService {
 
+    /**
+     * The Dvd store repository.
+     */
     @Autowired
     DvdStoreRepository dvdStoreRepository;
 
 
+    /**
+     * Add boolean.
+     *
+     * @param dvdServiceModel the dvd service model
+     * @return the boolean
+     */
 // CREATE
     public boolean add(DvdServiceModel dvdServiceModel)
         {
@@ -38,7 +50,11 @@ public class DvdStoreService {
         }
 
 
-
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
 // GET ALL
     public ArrayList<DvdServiceModel> findAll()
         {
@@ -59,6 +75,12 @@ public class DvdStoreService {
         }
 
 
+    /**
+     * Find by id dvd service model.
+     *
+     * @param id the id
+     * @return the dvd service model
+     */
 // GET ONE
     public DvdServiceModel findById(Long id) {
 
@@ -83,6 +105,12 @@ public class DvdStoreService {
     }
 
 
+    /**
+     * Update boolean.
+     *
+     * @param dvdServiceModel the dvd service model
+     * @return the boolean
+     */
 //UPDATE
     public boolean update(DvdServiceModel dvdServiceModel) {
 
@@ -109,6 +137,12 @@ public class DvdStoreService {
     }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 // DELETE
     public boolean delete(Long id) {
 
@@ -123,6 +157,11 @@ public class DvdStoreService {
     }
 
 
+    /**
+     * Delete all string.
+     *
+     * @return the string
+     */
 // DELETE
     public String deleteAll() {
 

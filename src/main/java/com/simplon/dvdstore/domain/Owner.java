@@ -8,6 +8,9 @@ import java.util.Collection;
 import java.util.List;
 
 
+/**
+ * The type Owner.
+ */
 @Entity
 public class Owner implements UserDetails {
     @Id
@@ -21,31 +24,66 @@ public class Owner implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    // Adding setters for registration purposes
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+// Adding setters for registration purposes
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Gets login.
+     *
+     * @return the login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * Sets login.
+     *
+     * @param login the login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
     public List<Role> getRoles() {
         return roles;
     }
 
+    /**
+     * Sets roles.
+     *
+     * @param roles the roles
+     */
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }

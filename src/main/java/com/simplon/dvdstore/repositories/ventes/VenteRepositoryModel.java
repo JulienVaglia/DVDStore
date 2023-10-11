@@ -13,6 +13,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * The type Vente repository model.
+ */
 @Entity
 @Data
 @Table(name = "vente")
@@ -42,6 +45,15 @@ public class VenteRepositoryModel {
     private int quantity;
 
 
+    /**
+     * Instantiates a new Vente repository model.
+     *
+     * @param date                  the date
+     * @param montant               the montant
+     * @param dvdRepositoryModel    the dvd repository model
+     * @param clientRepositoryModel the client repository model
+     * @param quantity              the quantity
+     */
     public VenteRepositoryModel(LocalDate date, Float montant, DvdRepositoryModel dvdRepositoryModel, ClientRepositoryModel clientRepositoryModel, int quantity) {
         this.date = date;
         this.montant = montant;

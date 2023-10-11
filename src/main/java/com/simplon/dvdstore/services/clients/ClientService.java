@@ -8,13 +8,25 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Client service.
+ */
 @Service
 public class ClientService {
 
+    /**
+     * The Client repository.
+     */
     @Autowired
     ClientRepository clientRepository;
 
 
+    /**
+     * Add boolean.
+     *
+     * @param clientServiceModel the client service model
+     * @return the boolean
+     */
 //CREATE
     public boolean add(ClientServiceModel clientServiceModel) {
 
@@ -29,6 +41,11 @@ public class ClientService {
     }
 
 
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
 //GET ALL
 public ArrayList<ClientServiceModel> findAll()
     {
@@ -47,6 +64,12 @@ public ArrayList<ClientServiceModel> findAll()
         }
 
 
+    /**
+     * Find by id client service model.
+     *
+     * @param id the id
+     * @return the client service model
+     */
 // GET ONE
     public ClientServiceModel findById(Long id) {
 
@@ -67,6 +90,12 @@ public ArrayList<ClientServiceModel> findAll()
     }
 
 
+    /**
+     * Update boolean.
+     *
+     * @param clientServiceModel the client service model
+     * @return the boolean
+     */
 //UPDATE
     public boolean update(ClientServiceModel clientServiceModel) {
 
@@ -92,6 +121,12 @@ public ArrayList<ClientServiceModel> findAll()
     }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 //DELETE ONE
     public boolean delete(Long id) {
         if (clientRepository.existsById(id))
@@ -107,6 +142,11 @@ public ArrayList<ClientServiceModel> findAll()
     }
 
 
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
 //DELETE ALL
     public boolean deleteAll() {
         if (clientRepository != null)

@@ -15,16 +15,28 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 
+/**
+ * The type Dvd store controller.
+ */
 @RestController // donnees json ou xml
 @RequestMapping("api/dvds")
 @NoArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 public class DvdStoreController {
 
+    /**
+     * The Dvd store service.
+     */
     @Autowired
     DvdStoreService dvdStoreService;
 
 
+    /**
+     * Add boolean.
+     *
+     * @param dvdStoreDTO the dvd store dto
+     * @return the boolean
+     */
 // CREATE
     @PostMapping
     @PreAuthorize("hasAuthority('admin')")
@@ -43,6 +55,11 @@ public class DvdStoreController {
         }
 
 
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
 //GET ALL
     @GetMapping
     public ArrayList<DvdStoreGetDTO> findAll()
@@ -64,6 +81,12 @@ public class DvdStoreController {
         }
 
 
+    /**
+     * Find by id response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
 // GET ONE
     @GetMapping ("/{id}")
     public ResponseEntity<DvdStoreGetDTO> findById(@PathVariable Long id)
@@ -86,7 +109,13 @@ public class DvdStoreController {
             }
         }
 
-    // Gérez l'exception personnalisée avec @ExceptionHandler
+    /**
+     * Handle custom not found exception response entity.
+     *
+     * @param ex the ex
+     * @return the response entity
+     */
+// Gérez l'exception personnalisée avec @ExceptionHandler
     @ExceptionHandler(NotFoundExection.class)
     public ResponseEntity<String> handleCustomNotFoundException(NotFoundExection ex)
         {
@@ -94,6 +123,13 @@ public class DvdStoreController {
         }
 
 
+    /**
+     * Update boolean.
+     *
+     * @param id          the id
+     * @param dvdStoreDTO the dvd store dto
+     * @return the boolean
+     */
 // UPDATE
     @PutMapping ("/{id}")
     @PreAuthorize("hasAuthority('admin')")
@@ -114,6 +150,12 @@ public class DvdStoreController {
         }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 // DELETE ONE
 @DeleteMapping("/{id}")
 @PreAuthorize("hasAuthority('admin')")
@@ -123,6 +165,13 @@ public boolean delete(@PathVariable("id") Long id)
     }
 
 
+
+
+    /**
+     * Delete all string.
+     *
+     * @return the string
+     */
 // DELETE ALL
 @DeleteMapping("/")
 @PreAuthorize("hasAuthority('admin')")

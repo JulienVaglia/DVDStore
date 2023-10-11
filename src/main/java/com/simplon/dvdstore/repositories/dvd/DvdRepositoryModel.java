@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Value;
 
 
+/**
+ * The type Dvd repository model.
+ */
 @Entity
 @Table(name="dvdstore")
 @Getter
@@ -30,6 +33,16 @@ public class DvdRepositoryModel {
     @Column(name="description", columnDefinition = "TEXT")
     private String description;
 
+    /**
+     * Instantiates a new Dvd repository model.
+     *
+     * @param name        the name
+     * @param genre       the genre
+     * @param quantity    the quantity
+     * @param price       the price
+     * @param photo       the photo
+     * @param description the description
+     */
     public DvdRepositoryModel(String name, String genre, Long quantity, Float price, String photo, String description)
         {
             this.name = name;

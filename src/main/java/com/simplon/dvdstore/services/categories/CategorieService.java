@@ -10,14 +10,26 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Categorie service.
+ */
 @Service
 public class CategorieService {
 
 
+    /**
+     * The Categorie repository.
+     */
     @Autowired
     CategorieRepository categorieRepository;
 
-    //CREATE
+    /**
+     * Add boolean.
+     *
+     * @param categorieServiceModel the categorie service model
+     * @return the boolean
+     */
+//CREATE
     public boolean add(CategorieServiceModel categorieServiceModel) {
 
         CategorieRepositoryModel categorieRepositoryModel = new CategorieRepositoryModel(
@@ -30,7 +42,12 @@ public class CategorieService {
     }
 
 
-    //GET ALL
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
+//GET ALL
     public ArrayList<CategorieServiceModel> findAll()
     {
 
@@ -46,7 +63,13 @@ public class CategorieService {
     }
 
 
-    // GET ONE
+    /**
+     * Find by id categorie service model.
+     *
+     * @param id the id
+     * @return the categorie service model
+     */
+// GET ONE
     public CategorieServiceModel findById(Long id) {
 
         Optional<CategorieRepositoryModel> categorieRepositoryModel = categorieRepository.findById(id);
@@ -64,7 +87,13 @@ public class CategorieService {
     }
 
 
-    //UPDATE
+    /**
+     * Update boolean.
+     *
+     * @param categorieServiceModel the categorie service model
+     * @return the boolean
+     */
+//UPDATE
     public boolean update(CategorieServiceModel categorieServiceModel) {
 
         if (categorieRepository != null){
@@ -86,7 +115,13 @@ public class CategorieService {
     }
 
 
-    //DELETE ONE
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+//DELETE ONE
     public boolean delete(Long id) {
         if (categorieRepository.existsById(id))
         {
@@ -101,7 +136,12 @@ public class CategorieService {
     }
 
 
-    //DELETE ALL
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
+//DELETE ALL
     public boolean deleteAll() {
         if (categorieRepository != null)
         {

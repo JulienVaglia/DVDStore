@@ -20,17 +20,29 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+/**
+ * The type Jwt user service.
+ */
 @Service
 public class JwtUserServiceImpl implements JwtUserService {
     @Autowired
     private OwnerRepository ownerRepository;
 
+    /**
+     * The Authentication configuration.
+     */
     @Autowired
     AuthenticationConfiguration authenticationConfiguration;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
     private final String signingKey;
+
+    /**
+     * Instantiates a new Jwt user service.
+     *
+     * @param signingKey the signing key
+     */
     public JwtUserServiceImpl(@Value("${jwt.signing.key}") String signingKey) {
         this.signingKey = signingKey;
     }

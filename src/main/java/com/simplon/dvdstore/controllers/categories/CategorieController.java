@@ -11,15 +11,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Categorie controller.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/categories")
 public class CategorieController {
 
+    /**
+     * The Categorie service.
+     */
     @Autowired
     CategorieService categorieService;
 
-    //CREATE
+    /**
+     * Add boolean.
+     *
+     * @param categorieDTO the categorie dto
+     * @return the boolean
+     */
+//CREATE
     @PostMapping
     @PreAuthorize("hasAuthority('admin')")
     public boolean add( @RequestBody CategorieDTO categorieDTO )
@@ -31,7 +43,12 @@ public class CategorieController {
     }
 
 
-    //GET ALL
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
+//GET ALL
     @GetMapping
     public ArrayList<CategorieGetDTO> findAll()
     {
@@ -49,7 +66,13 @@ public class CategorieController {
     }
 
 
-    //GET ONE
+    /**
+     * Find by id response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
+//GET ONE
     @PreAuthorize("hasAuthority('admin')")
     @GetMapping("/{id}")
     public ResponseEntity<CategorieGetDTO> findById(@PathVariable Long id){
@@ -71,7 +94,14 @@ public class CategorieController {
     }
 
 
-    //UPDATE
+    /**
+     * Update boolean.
+     *
+     * @param id           the id
+     * @param categorieDTO the categorie dto
+     * @return the boolean
+     */
+//UPDATE
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('admin')")
     public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody CategorieDTO categorieDTO){
@@ -85,7 +115,13 @@ public class CategorieController {
     }
 
 
-    //DELETE ONE
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
+//DELETE ONE
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('admin')")
     public boolean delete(@PathVariable("id") Long id)
@@ -94,7 +130,12 @@ public class CategorieController {
     }
 
 
-    //DELETE ALL
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
+//DELETE ALL
     @DeleteMapping("/")
     @PreAuthorize("hasAuthority('admin')")
     public boolean deleteAll()

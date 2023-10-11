@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
+/**
+ * The type Vente controller.
+ */
 @RestController
 @RequestMapping("api/ventes")
 @NoArgsConstructor
@@ -24,15 +27,29 @@ import java.util.Optional;
 @PreAuthorize("hasAuthority('admin')")
 public class VenteController {
 
+    /**
+     * The Vente service.
+     */
     @Autowired
     VenteService venteService;
+    /**
+     * The Dvd service.
+     */
     @Autowired
     DvdStoreService dvdService;
+    /**
+     * The Client service.
+     */
     @Autowired
     ClientService clientService;
 
 
-
+    /**
+     * Add boolean.
+     *
+     * @param venteDTO the vente dto
+     * @return the boolean
+     */
 // Create
     @PostMapping
     @PreAuthorize("hasAuthority('admin')")
@@ -50,6 +67,11 @@ public class VenteController {
 
         }
 
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
 //GET ALL
     @GetMapping
     @PreAuthorize("hasAuthority('admin')")
@@ -90,6 +112,12 @@ public class VenteController {
         }
 
 
+    /**
+     * Findbyid response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
 // GET ONE
     @GetMapping("/{id}")
     public ResponseEntity<VenteGetDTO> findbyid(@PathVariable Long id) {
@@ -129,6 +157,13 @@ public class VenteController {
     }
 
 
+    /**
+     * Update boolean.
+     *
+     * @param id       the id
+     * @param venteDTO the vente dto
+     * @return the boolean
+     */
 // UPDATE
 @PutMapping("/{id}")
 @PreAuthorize("hasAuthority('admin')")
@@ -150,6 +185,12 @@ public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteD
 }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 //DELETE ONE
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('admin')")
@@ -159,6 +200,11 @@ public boolean update(@PathVariable("id") Optional<Long> id, @RequestBody VenteD
         }
 
 
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
 //DELETE ALL
     @DeleteMapping("/")
     @PreAuthorize("hasAuthority('admin')")

@@ -14,17 +14,35 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Vente service.
+ */
 @Service
 public class VenteService {
 
+    /**
+     * The Vente repository.
+     */
     @Autowired
     VenteRepository venteRepository;
+    /**
+     * The Dvd store repository.
+     */
     @Autowired
     DvdStoreRepository dvdStoreRepository;
+    /**
+     * The Client repository.
+     */
     @Autowired
     ClientRepository clientRepository;
 
 
+    /**
+     * Add boolean.
+     *
+     * @param venteServiceModel the vente service model
+     * @return the boolean
+     */
 // Create
     public boolean add(VenteServiceModel venteServiceModel) {
 
@@ -46,6 +64,11 @@ public class VenteService {
     }
 
 
+    /**
+     * Find all array list.
+     *
+     * @return the array list
+     */
 // GET ALL
     public ArrayList<VenteServiceModel> findAll() {
 
@@ -84,6 +107,12 @@ public class VenteService {
     }
 
 
+    /**
+     * Find by id vente service model.
+     *
+     * @param id the id
+     * @return the vente service model
+     */
 // GET ONE
     public VenteServiceModel findById(Long id) {
 
@@ -128,8 +157,12 @@ public class VenteService {
     }
 
 
-
-
+    /**
+     * Update boolean.
+     *
+     * @param venteServiceModel the vente service model
+     * @return the boolean
+     */
 //UPDATE
 public boolean update(VenteServiceModel venteServiceModel) {
 
@@ -159,6 +192,12 @@ public boolean update(VenteServiceModel venteServiceModel) {
 }
 
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
 //DELETE
     public boolean delete(Long id) {
 
@@ -175,6 +214,11 @@ public boolean update(VenteServiceModel venteServiceModel) {
     }
 
 
+    /**
+     * Delete all boolean.
+     *
+     * @return the boolean
+     */
 //DELETE ALL
     public boolean deleteAll() {
 
