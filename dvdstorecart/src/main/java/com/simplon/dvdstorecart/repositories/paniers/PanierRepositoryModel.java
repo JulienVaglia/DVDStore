@@ -2,6 +2,7 @@ package com.simplon.dvdstorecart.repositories.paniers;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,9 +10,8 @@ import java.util.Date;
 
 @Entity
 @Table(name="panier")
-@Getter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class PanierRepositoryModel {
 
     @Id
@@ -28,11 +28,4 @@ public class PanierRepositoryModel {
     @Column(name = "price")
     private Float price;
 
-    public PanierRepositoryModel(Float montant, Date date_validation, Long client_id, int quantity, Float price) {
-        this.montant = montant;
-        this.date_validation = date_validation;
-        this.client_id = client_id;
-        this.quantity = quantity;
-        this.price = price;
-    }
 }
