@@ -39,7 +39,7 @@ public class ClientController {
      * @return the boolean
      */
 //CREATE
-@PreAuthorize("hasAuthority('admin')")
+    @PreAuthorize("hasAuthority('admin')")
     @PostMapping
     public boolean add( @RequestBody ClientDTO clientDTO )
     {

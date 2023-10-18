@@ -2,27 +2,31 @@ package com.simplon.dvdstorecart.services.paniers;
 
 import com.simplon.dvdstorecart.mappers.DvdStoreCartMapper;
 import com.simplon.dvdstorecart.repositories.paniers.PanierRepository;
-import com.simplon.dvdstorecart.repositories.paniers.PanierRepositoryModel;
+import com.simplon.dvdstorecart.repositories.paniers.PanierDvdRepository;
+import com.simplon.dvdstorecart.repositories.paniers.PanierDvdRepositoryModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Service
-public class PanierService {
+public class PanierDvdService {
+
 
     @Autowired
-    PanierRepository panierRepository;
+    PanierDvdRepository panierRepository;
+
+    @Autowired
+    PanierRepository finalPanierRepository;
 
 // CREATE
 
     private final DvdStoreCartMapper dvdStoreCartMapper = DvdStoreCartMapper.INSTANCE;
 
 
-    public boolean add(PanierServiceModel panierServiceModel) {
+    public boolean add(PanierDvdServiceModel panierServiceModel) {
 
-        PanierRepositoryModel panierRepositoryModel = dvdStoreCartMapper.serviceToRepository(panierServiceModel);
+        PanierDvdRepositoryModel panierRepositoryModel = dvdStoreCartMapper.serviceToRepository(panierServiceModel);
 
 //        PanierRepositoryModel panierRepositoryModel = new PanierRepositoryModel(
 //
@@ -32,7 +36,7 @@ public class PanierService {
 //                panierServiceModel.getQuantity(),
 //                panierServiceModel.getPrice())
 //        ;
-        PanierRepositoryModel panierRepositoryModelReturned = panierRepository.save(panierRepositoryModel);
+        PanierDvdRepositoryModel panierRepositoryModelReturned = panierRepository.save(panierRepositoryModel);
 
         return panierRepositoryModelReturned != null;
     }
@@ -40,9 +44,9 @@ public class PanierService {
 
 // GET All
 
-    public ArrayList<PanierServiceModel> findAll() {
-        Iterable<PanierRepositoryModel> paniers = panierRepository.findAll(); // on Récupère nos infos du repository
-        ArrayList<PanierServiceModel> panierServiceModels = dvdStoreCartMapper.arrayListRepositoryToService(paniers); // On envoi au mapper qui retourne une ArrayList<PanierServiceModel>
+    public ArrayList<PanierDvdServiceModel> findAll() {
+        Iterable<PanierDvdRepositoryModel> paniers = panierRepository.findAll(); // on Récupère nos infos du repository
+        ArrayList<PanierDvdServiceModel> panierServiceModels = dvdStoreCartMapper.arrayListRepositoryToService(paniers); // On envoi au mapper qui retourne une ArrayList<PanierServiceModel>
 
         // Plus rapide :
         // ArrayList<PanierServiceModel> panierServiceModels = dvdStoreCartMapper.arrayListRepositoryToService(panierRepository.findAll());
@@ -53,9 +57,9 @@ public class PanierService {
 
 // GET One
 
-    public PanierServiceModel findByID(Long id)
+    public PanierDvdServiceModel findByID(Long id)
         {
-            PanierRepositoryModel panier = null;
+            PanierDvdRepositoryModel panier = null;
 
             if ( panierRepository.findById(id).isPresent()) {
                 panier = panierRepository.findById(id).get();
@@ -68,7 +72,7 @@ public class PanierService {
 
 
 // UPDATE
-    public boolean update(PanierServiceModel panierServiceModel) {
+    public boolean update(PanierDvdServiceModel panierServiceModel) {
 
 //        PanierRepositoryModel panierRepositoryModel = dvdStoreCartMapper.serviceToRepository(panierServiceModel);
 //        PanierRepositoryModel panierRepositoryModelReturned = panierRepository.save(panierRepositoryModel);
@@ -77,6 +81,29 @@ public class PanierService {
         panierRepository.save(dvdStoreCartMapper.serviceToRepository(panierServiceModel));
         return true;
 
+    }
+
+
+// DELETE
+    public boolean delete(Long id) {
+        if (panierRepository.existsById(id))
+        {
+            panierRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
+
+// DELETE ALL
+    public boolean deleteAll(){
+        if (panierRepository != null)
+        {
+            panierRepository.deleteAll();
+            return true;
+        }
+        return false;
 
     }
+
 }

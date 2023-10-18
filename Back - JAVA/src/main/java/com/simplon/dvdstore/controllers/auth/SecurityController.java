@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * The type Security controller.
  */
 @RestController
-@RequestMapping("api/")
+@RequestMapping("")
 public class SecurityController {
     @Autowired
     private JwtUserService userService;

@@ -2,9 +2,15 @@ package com.simplon.dvdstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients("com.simplon.dvdstore")
 @SpringBootApplication
 public class DvdstoreApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DvdstoreApplication.class, args);
+	}
 
 //Le controlleur : il sert à recevoir les données Json et à les passer au service (map en Service Model)
 //Le service: il sert à recevoir les données en Service Model , effectuer des traitements et les passer au repository (map en RepositoryModel
@@ -71,13 +77,5 @@ public class DvdstoreApplication {
 //        System.out.println("qte vendue du dvd 1 : " + addition);
 //        System.out.println("stock du dvd 1 :" + qteVendue);
 //}
-
-
-
-	public static void main(String[] args) {
-		SpringApplication.run(DvdstoreApplication.class, args);
-	}
-
-
 
 }

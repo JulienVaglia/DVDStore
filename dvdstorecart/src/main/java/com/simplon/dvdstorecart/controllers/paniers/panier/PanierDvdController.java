@@ -1,33 +1,31 @@
-package com.simplon.dvdstorecart.controllers.paniers;
+package com.simplon.dvdstorecart.controllers.paniers.panier;
 import com.simplon.dvdstorecart.mappers.DvdStoreCartMapper;
-import com.simplon.dvdstorecart.services.paniers.PanierService;
-import com.simplon.dvdstorecart.services.paniers.PanierServiceModel;
+import com.simplon.dvdstorecart.services.paniers.PanierDvdService;
+import com.simplon.dvdstorecart.services.paniers.PanierDvdServiceModel;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("api/panier")
+@RequestMapping("api/paniers")
 @NoArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
-public class PanierController {
+public class PanierDvdController {
 
 
     @Autowired
-    PanierService panierService;
+    PanierDvdService panierService;
     private final DvdStoreCartMapper dvdStoreCartMapper = DvdStoreCartMapper.INSTANCE;
 
 
 // Create
     @PostMapping
-    @PreAuthorize("hasAuthority('admin')")
-    public boolean add (@RequestBody PanierGetDTO panierGetDTO)
+    public boolean add (@RequestBody PanierDvdGetDTO panierGetDTO)
     {
-        PanierServiceModel panierServiceModel = dvdStoreCartMapper.dtoToService(panierGetDTO);
+        PanierDvdServiceModel panierServiceModel = dvdStoreCartMapper.dtoToService(panierGetDTO);
 
         // dvdMapper.dtoToService(panierGetDTO); vaut :
 
@@ -44,10 +42,10 @@ public class PanierController {
 
 
 
-// GET all
+// GET ALL
     @GetMapping
-    @PreAuthorize("hasAuthority('admin')")
-    public ArrayList<PanierGetDTO> findAll(){
+
+    public ArrayList<PanierDvdGetDTO> findAll(){
 
 //        Etapes par etapes :
 //        ArrayList<PanierServiceModel> paniers = panierService.findAll();
@@ -58,11 +56,10 @@ public class PanierController {
     }
 
 
-
-//    Get One
+// Get One
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('admin')")
-    public PanierGetDTO findByID(Long id){
+
+    public PanierDvdGetDTO findByID(@PathVariable Long id){
 
 //        PanierServiceModel panier = panierService.findByID(id);
 //        PanierGetDTO panierGetDTO = dvdStoreCartMapper.serviceToDTO(panier);
@@ -72,13 +69,27 @@ public class PanierController {
     }
 
 
-//UPDATE
+// UPDATE
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('admin')")
-    public boolean update (Long id, @RequestBody PanierGetDTO panierGetDTO){
 
-        PanierServiceModel panierServiceModel = dvdStoreCartMapper.dtoToService(panierGetDTO);
+    public boolean update (@PathVariable("id") Long id, @RequestBody PanierDvdGetDTO panierGetDTO){
+
+        PanierDvdServiceModel panierServiceModel = dvdStoreCartMapper.dtoToService(panierGetDTO);
         return panierService.update(panierServiceModel);
 
     }
+
+// DELETE
+     @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Long id){
+        return panierService.delete(id);
+     }
+
+
+// DELETE ALL
+    @DeleteMapping
+    public boolean deleteAll(){
+        return panierService.deleteAll();
+    }
+
 }
