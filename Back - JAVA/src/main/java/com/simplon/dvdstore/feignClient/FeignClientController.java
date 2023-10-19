@@ -3,10 +3,7 @@ package com.simplon.dvdstore.feignClient;
 import com.simplon.dvdstore.proxies.MicroservicePanierProxy;
 import lombok.AllArgsConstructor;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -29,4 +26,8 @@ public class FeignClientController {
         return panierProxy.findAll();
     }
 
+    @PostMapping
+    public boolean addDvdPrice ( @RequestBody PanierDvdGetDTO panierDvdGetDTO ){
+        return panierProxy.addDvdPrice(panierDvdGetDTO);
+    }
 }
