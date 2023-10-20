@@ -30,7 +30,7 @@ export class SaleDetailComponent implements OnInit {
   ngOnInit() 
 {
   this.id = this.route.snapshot.paramMap.get('id');
-  this.http.get('http://localhost:9000/ventes/' + this.id).subscribe({
+  this.httpSale.getOneSale(this.id).subscribe({
 
     next: (data) => { this.vente = data, console.table(data) },
     error: (err: Error) => console.log('Erreur : ' + err),

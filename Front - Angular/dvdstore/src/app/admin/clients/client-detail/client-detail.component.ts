@@ -23,12 +23,12 @@ clients: Array<ClientModel>= [];
 client!: any;
 id: any ='';
 
-constructor( private http: HttpClient, private route: ActivatedRoute, private httpMovie: ClientsService, private router: Router ) {}
+constructor( private http: HttpClient, private route: ActivatedRoute, private httpClient: ClientsService, private router: Router ) {}
 
 ngOnInit() 
 {
   this.id = this.route.snapshot.paramMap.get('id');
-  this.http.get('http://localhost:9000/clients/' + this.id).subscribe({
+  this.httpClient.getOneClient(this.id).subscribe({
 
     next: (data) => { this.client = data, console.table(data) },
     error: (err: Error) => console.log('Erreur : ' + err),
@@ -40,7 +40,7 @@ ngOnInit()
 deleteClient(id: any)
 {
   console.log(id);     
-  this.httpMovie.deleteClient(id).subscribe({
+  this.httpClient.deleteClient(id).subscribe({
 
   next: (data) => 
     { this.client = data, 

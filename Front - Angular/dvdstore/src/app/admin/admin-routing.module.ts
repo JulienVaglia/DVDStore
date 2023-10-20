@@ -12,30 +12,36 @@ import { ClientListComponent } from './clients/client-list/client-list.component
 import { ClientFormComponent } from './clients/client-form/client-form.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { SaleDetailComponent } from './sales/sale-detail/sale-detail.component';
+import { authGuard } from '../_helpers/auth.guard';
+import { ProfilComponent } from './profil/profil/profil.component';
+import { ProfilFormComponent } from './profil/profil-form/profil-form.component';
 
 
 const routes: Routes = [
 
     {path: '', component: AdminLayoutComponent, children: [  // Sert de sous-routing afin d'afficher le layout (visuel) adapté à l'admin
 
-      {path: '', component: HomeComponent},
+      {path: '', component: HomeComponent, canActivate: [authGuard] },
 
-      {path: 'movie_list', component: MovieListComponent},
-      {path: 'movie_form', component: MovieFormComponent},
-      {path: 'movie_form/:id', component: MovieFormComponent},
-      {path: 'movie_detail/:id', component: MovieDetailComponent},
+      {path: 'movie_list', component: MovieListComponent, canActivate: [authGuard] },
+      {path: 'movie_form', component: MovieFormComponent, canActivate: [authGuard] },
+      {path: 'movie_form/:id', component: MovieFormComponent, canActivate: [authGuard] },
+      {path: 'movie_detail/:id', component: MovieDetailComponent, canActivate: [authGuard] },
 
-      {path: 'sale_list', component: SaleListComponent},
-      {path: 'sale_form', component: SaleFormComponent},
-      {path: 'sale_form/:id', component: SaleFormComponent},
-      {path: 'sale_detail/:id', component: SaleDetailComponent},
+      {path: 'sale_list', component: SaleListComponent, canActivate: [authGuard] },
+      {path: 'sale_form', component: SaleFormComponent, canActivate: [authGuard] },
+      {path: 'sale_form/:id', component: SaleFormComponent, canActivate: [authGuard] },
+      {path: 'sale_detail/:id', component: SaleDetailComponent, canActivate: [authGuard] },
 
-      {path: 'client_list', component: ClientListComponent},
-      {path: 'client_form', component: ClientFormComponent},
-      {path: 'client_form/:id', component: ClientFormComponent},
-      {path: 'client_detail/:id', component: ClientDetailComponent},
+      {path: 'client_list', component: ClientListComponent, canActivate: [authGuard] },
+      {path: 'client_form', component: ClientFormComponent, canActivate: [authGuard] },
+      {path: 'client_form/:id', component: ClientFormComponent, canActivate: [authGuard] },
+      {path: 'client_detail/:id', component: ClientDetailComponent, canActivate: [authGuard] },
       
-      {path: 'genre_form', component: GenreFormComponent}
+      {path: 'genre_form', component: GenreFormComponent, canActivate: [authGuard] },
+
+      {path: 'profil', component: ProfilComponent, canActivate: [authGuard] },
+      {path: 'profil_form/:id', component: ProfilFormComponent, canActivate: [authGuard] }
 
     ]}
 ];
