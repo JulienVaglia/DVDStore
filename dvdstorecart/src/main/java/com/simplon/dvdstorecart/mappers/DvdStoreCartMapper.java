@@ -1,13 +1,17 @@
 package com.simplon.dvdstorecart.mappers;
 
-import com.simplon.dvdstorecart.controllers.paniers.PanierGetDTO;
-import com.simplon.dvdstorecart.repositories.paniers.PanierRepositoryModel;
-import com.simplon.dvdstorecart.services.paniers.PanierServiceModel;
+import com.simplon.dvdstorecart.controllers.panier.PanierGetDTO;
+import com.simplon.dvdstorecart.controllers.panierdvd.PanierDvdGetDTO;
+import com.simplon.dvdstorecart.repositories.panier.PanierRepositoryModel;
+import com.simplon.dvdstorecart.repositories.panierdvd.PanierDvdRepositoryModel;
+import com.simplon.dvdstorecart.services.panier.PanierServiceModel;
+import com.simplon.dvdstorecart.services.panierdvd.PanierDvdServiceModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Mapper
 public interface DvdStoreCartMapper {
@@ -18,27 +22,39 @@ public interface DvdStoreCartMapper {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //            DTO  ->  Service  -->  Repository
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    @Mapping(target = "id", ignore = true)
-    PanierServiceModel dtoToService (PanierGetDTO panierGetDTO);
 
-    @Mapping(target = "id" , ignore = true)
-    PanierRepositoryModel serviceToRepository(PanierServiceModel panierServiceModel);
+    PanierDvdServiceModel dtoToService (PanierDvdGetDTO panierGetDTO);
+
+    PanierDvdRepositoryModel serviceToRepository(PanierDvdServiceModel panierServiceModel);
+
+
+//    PanierServiceModel dtoToService (PanierGetDTO panierGetDTO);
+//
+//    PanierRepositoryModel serviceToRepository(PanierServiceModel panierServiceModel);
+
 
 
 
 // ------------------------------------------------------------------------------
 //             List<Repository>  ->  List<Service>  -->  List<GetDTO>
 // ------------------------------------------------------------------------------
-    ArrayList<PanierServiceModel> arrayListRepositoryToService(Iterable<PanierRepositoryModel> paniers);
 
-    ArrayList<PanierGetDTO> arrayListServiceToDTO(ArrayList<PanierServiceModel> paniers);
+    List<PanierDvdServiceModel> arrayListRepositoryToService(List<PanierDvdRepositoryModel> paniers);
+
+    List<PanierDvdGetDTO> arrayListServiceToDTO(List<PanierDvdServiceModel> paniers);
 
 
+    List<PanierServiceModel> arrayListPanierRepositoryToService(List<PanierRepositoryModel> panier);
+
+//    @Mapping(target = "dvds", ignore = true)
+    List<PanierGetDTO> arrayListPanierServiceToDTO(List<PanierServiceModel> all);
 // ------------------------------------------------------------------------------
 //             Repository  ->  Service  -->  GetDTO
 // ------------------------------------------------------------------------------
 
-    PanierGetDTO serviceToDTO(PanierServiceModel panier);
+    PanierDvdGetDTO serviceToDTO(PanierDvdServiceModel panier);
 
-    PanierServiceModel repositoryToService(PanierRepositoryModel panier);
+    PanierDvdServiceModel repositoryToService(PanierDvdRepositoryModel panier);
+
+
 }

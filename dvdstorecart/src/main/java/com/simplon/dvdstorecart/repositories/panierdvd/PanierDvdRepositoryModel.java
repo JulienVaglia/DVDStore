@@ -1,8 +1,11 @@
-package com.simplon.dvdstorecart.repositories.paniers;
+package com.simplon.dvdstorecart.repositories.panierdvd;
 
+import com.simplon.dvdstorecart.repositories.panier.PanierRepositoryModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name="panier_dvd")
@@ -15,12 +18,15 @@ public class PanierDvdRepositoryModel {
     private Long id;
     @Column(name="dvd_id")
     private Long dvd_id;
-    @Column(name="panier_id")
-    private Long panier_id;
+//    @Column(name="panier_id")
+//    private Long panier_id;
     @Column(name="quantite")
     private Integer quantite;
-    @Column(name = "dvd_prix")
-    private Float dvd_prix;
+
+    @ManyToOne
+    @JoinColumn(name = "panier_id")
+    private List<PanierRepositoryModel> panierRepositoryModel;
+
 
 
 

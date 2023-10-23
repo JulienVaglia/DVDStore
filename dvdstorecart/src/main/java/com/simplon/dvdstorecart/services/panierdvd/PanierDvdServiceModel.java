@@ -1,6 +1,7 @@
-package com.simplon.dvdstorecart.services.paniers;
+package com.simplon.dvdstorecart.services.panierdvd;
 
 
+import com.simplon.dvdstorecart.repositories.panier.PanierRepositoryModel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +12,8 @@ public class PanierDvdServiceModel {
     private Long id;
     private Long dvd_id;;
     private Long panier_id;
-    private Integer quantite;
     private Float dvd_prix;
+    private Integer quantite;
 
+//    private PanierRepositoryModel panierRepositoryModel;
 }

@@ -1,13 +1,14 @@
-package com.simplon.dvdstorecart.controllers.paniers.panier;
+package com.simplon.dvdstorecart.controllers.panierdvd;
 import com.simplon.dvdstorecart.mappers.DvdStoreCartMapper;
-import com.simplon.dvdstorecart.services.paniers.PanierDvdService;
-import com.simplon.dvdstorecart.services.paniers.PanierDvdServiceModel;
+import com.simplon.dvdstorecart.services.panierdvd.PanierDvdService;
+import com.simplon.dvdstorecart.services.panierdvd.PanierDvdServiceModel;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/paniers")
@@ -44,8 +45,7 @@ public class PanierDvdController {
 
 // GET ALL
     @GetMapping
-
-    public ArrayList<PanierDvdGetDTO> findAll(){
+    public List<PanierDvdGetDTO> findAll(){
 
 //        Etapes par etapes :
 //        ArrayList<PanierServiceModel> paniers = panierService.findAll();
