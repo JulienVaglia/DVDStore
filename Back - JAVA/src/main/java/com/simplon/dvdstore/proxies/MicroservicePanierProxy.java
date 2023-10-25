@@ -13,13 +13,13 @@ import java.util.ArrayList;
 @FeignClient(name="dvdCart", url = "localhost:9002")
 public interface MicroservicePanierProxy {
 
-    @GetMapping("/api/paniers/{id}")
+    @GetMapping("/api/panier/{id}")
     PanierDvdFeignBean findById(@PathVariable("id")Long id);
 
-    @GetMapping("/api/paniers")
+    @GetMapping("/api/panier")
     ArrayList<PanierDvdGetDTO> findAll();
 
-    @PostMapping("/api/paniers")
+    @PostMapping("/api/panier")
     boolean addDvdPrice(@RequestBody PanierDvdGetDTO panierDvdGetDTO);
 
 }
