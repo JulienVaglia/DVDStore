@@ -1,5 +1,6 @@
 package com.simplon.dvdstore.proxies;
 
+import com.simplon.dvdstore.feignClient.PanierDto;
 import com.simplon.dvdstore.feignClient.PanierDvdFeignBean;
 import com.simplon.dvdstore.feignClient.PanierDvdGetDTO;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public interface MicroservicePanierProxy {
 
     @GetMapping("/api/panier/{id}")
-    PanierDvdFeignBean findById(@PathVariable("id")Long id);
+    PanierDto findById(@PathVariable("id")Long id);
 
     @GetMapping("/api/panier")
     ArrayList<PanierDvdGetDTO> findAll();

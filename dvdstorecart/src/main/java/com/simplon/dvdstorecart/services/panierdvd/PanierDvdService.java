@@ -1,13 +1,14 @@
 package com.simplon.dvdstorecart.services.panierdvd;
 
 import com.simplon.dvdstorecart.mappers.DvdStoreCartMapper;
+import com.simplon.dvdstorecart.repositories.panier.PanierRepository;
+import com.simplon.dvdstorecart.repositories.panier.PanierRepositoryModel;
 import com.simplon.dvdstorecart.repositories.panierdvd.PanierDvdRepository;
 import com.simplon.dvdstorecart.repositories.panierdvd.PanierDvdRepositoryModel;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,7 +16,9 @@ public class PanierDvdService {
 
 
     @Autowired
-    PanierDvdRepository panierRepository;
+    PanierDvdRepository panierDvdRepository;
+    @Autowired
+    PanierRepository panierRepository;
     private final DvdStoreCartMapper dvdStoreCartMapper = DvdStoreCartMapper.INSTANCE;
     @Autowired
     EntityManager entityManager;
@@ -29,7 +32,7 @@ public class PanierDvdService {
 
         PanierDvdRepositoryModel panierRepositoryModel = dvdStoreCartMapper.serviceToRepository(panierServiceModel);
 
-        PanierDvdRepositoryModel panierRepositoryModelReturned = panierRepository.save(panierRepositoryModel);
+        PanierDvdRepositoryModel panierRepositoryModelReturned = panierDvdRepository.save(panierRepositoryModel);
 
         // methode n°1
 //        StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("prix_total_dvd");
@@ -47,7 +50,7 @@ public class PanierDvdService {
 //        storedProcedure.execute();
 
 // methode n°2
-        panierRepository.prix_total_dvd( panierServiceModel.getDvd_id(),
+        panierDvdRepository.prix_total_dvd( panierServiceModel.getDvd_id(),
                 panierServiceModel.getPanier_id(),
                 panierServiceModel.getDvd_prix(),
                 panierServiceModel.getQuantite());
@@ -69,7 +72,7 @@ public class PanierDvdService {
 // GET All
 
     public List<PanierDvdServiceModel> findAll() {
-        List<PanierDvdRepositoryModel> paniers = panierRepository.findAll(); // on Récupère nos infos du repository
+        List<PanierDvdRepositoryModel> paniers = panierDvdRepository.findAll(); // on Récupère nos infos du repository
         List<PanierDvdServiceModel> panierServiceModels = dvdStoreCartMapper.arrayListRepositoryToService(paniers); // On envoi au mapper qui retourne une ArrayList<PanierServiceModel>
 
         // Plus rapide :
@@ -78,15 +81,20 @@ public class PanierDvdService {
         return panierServiceModels;
     }
 
+    public List<PanierDvdRepositoryModel> findAllByPanierRepositoryModel(Long id) {
 
+        PanierRepositoryModel panier = panierRepository.findById(id).get();
+
+        return panierDvdRepository.findAllByPanierRepositoryModel(panier);
+    }
 // GET One
 
     public PanierDvdServiceModel findByID(Long id)
         {
             PanierDvdRepositoryModel panier = null;
 
-            if ( panierRepository.findById(id).isPresent()) {
-                panier = panierRepository.findById(id).get();
+            if ( panierDvdRepository.findById(id).isPresent()) {
+                panier = panierDvdRepository.findById(id).get();
             }
 
             return dvdStoreCartMapper.repositoryToService(panier);
@@ -98,7 +106,7 @@ public class PanierDvdService {
 // UPDATE
     public boolean update(PanierDvdServiceModel panierServiceModel) {
 
-        panierRepository.save(dvdStoreCartMapper.serviceToRepository(panierServiceModel));
+        panierDvdRepository.save(dvdStoreCartMapper.serviceToRepository(panierServiceModel));
         return true;
 
     }
@@ -106,9 +114,9 @@ public class PanierDvdService {
 
 // DELETE
     public boolean delete(Long id) {
-        if (panierRepository.existsById(id))
+        if (panierDvdRepository.existsById(id))
         {
-            panierRepository.deleteById(id);
+            panierDvdRepository.deleteById(id);
             return true;
         }
         return false;
@@ -117,9 +125,9 @@ public class PanierDvdService {
 
 // DELETE ALL
     public boolean deleteAll(){
-        if (panierRepository != null)
+        if (panierDvdRepository != null)
         {
-            panierRepository.deleteAll();
+            panierDvdRepository.deleteAll();
             return true;
         }
         return false;

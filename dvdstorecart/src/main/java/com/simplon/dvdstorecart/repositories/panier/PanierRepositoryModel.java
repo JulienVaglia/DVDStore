@@ -3,7 +3,9 @@ package com.simplon.dvdstorecart.repositories.panier;
 import com.simplon.dvdstorecart.repositories.panierdvd.PanierDvdRepositoryModel;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.*;
 
@@ -24,7 +26,7 @@ public class PanierRepositoryModel {
         private Long client_id;
 
         @OneToMany(mappedBy = "panierRepositoryModel", orphanRemoval = true)
-        public List<PanierDvdRepositoryModel> dvds;
+        public List<PanierDvdRepositoryModel> dvds = new ArrayList<>();
 
 }
 

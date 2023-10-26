@@ -52,9 +52,17 @@ public interface DvdStoreCartMapper {
 //             Repository  ->  Service  -->  GetDTO
 // ------------------------------------------------------------------------------
 
+    //PanierDVD
     PanierDvdGetDTO serviceToDTO(PanierDvdServiceModel panier);
-
     PanierDvdServiceModel repositoryToService(PanierDvdRepositoryModel panier);
 
 
+    //Panier
+    PanierServiceModel repositoryPanierToService(PanierRepositoryModel panier);
+    
+    
+    
+    PanierGetDTO servicePanierToDTO(PanierServiceModel byID, List<PanierDvdRepositoryModel> dvds);
+
+    PanierGetDTO panierServiceToPanierDTO(PanierServiceModel panierRepositoryModel);
 }

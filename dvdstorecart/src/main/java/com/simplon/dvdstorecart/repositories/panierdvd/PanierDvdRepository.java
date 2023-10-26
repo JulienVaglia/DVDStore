@@ -11,6 +11,7 @@ import java.util.List;
 public interface PanierDvdRepository extends CrudRepository<PanierDvdRepositoryModel, Long> {
 
     List<PanierDvdRepositoryModel> findAll();
+    List<PanierDvdRepositoryModel> findAllByPanierRepositoryModel(PanierRepositoryModel id);
 
     @Procedure(name= "prix_total_dvd")
     void prix_total_dvd(Long dvd_id, Long panier_id, Float dvd_prix, int quantite);
