@@ -1,0 +1,96 @@
+<div class="">
+
+    <!-- -------------- LOGO---------------------- -->
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
+        style="min-width: 15rem ; max-width: 15rem; height: 100vh;">
+        <a [routerLink]="['']">
+            <img class="mt-2 mb-3" src="/assets/img/logo_whiteBack.png" alt="" width="220rem" height="auto">
+        </a>
+
+
+    <!-- -------------- ACCEUIL---------------------- -->
+
+        <a [routerLink]="['']" class="mt-4 fs-4 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">
+            <img src="/assets/icon/home.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Acceuil
+        </a>
+
+
+
+    <!-- -------------- FILMS---------------------- -->
+
+        <a class="mt-4 fs-4 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#film-collapse" aria-expanded="true">
+            <img src="/assets/icon/movie.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Films
+        </a>
+
+        <div class="collapse show" id="film-collapse">
+            <ul class="nav nav-pills flex-column ms-3">
+                <li class="nav-item">
+                    <a [routerLink]="['movie_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                        Tout les films
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['movie_form']" class="nav-link link-body-emphasis mb-1">
+                        Ajouter / Modifier
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['genre_form']" class="nav-link link-body-emphasis mb-1">
+                        Catégorie
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    <!-- -------------- VENTES---------------------- -->
+
+        <a class="mt-4 fs-4 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#vente-collapse" aria-expanded="false">
+            <img src="/assets/icon/cashier.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Ventes
+        </a>
+
+        <div class="collapse" id="vente-collapse">
+            <ul class="nav nav-pills flex-column ms-3">
+                <li class="nav-item">
+                    <a [routerLink]="['sale_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                        Toutes les ventes
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['sale_form']" class="nav-link link-body-emphasis mb-1">
+                        Ajouter une vente
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    <!-- -------------- UTILISATEURS---------------------- -->
+
+        <a class="mt-4 fs-4 btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#user-collapse" aria-expanded="false">
+            <img src="/assets/icon/users.png" alt="" style="width: 1.8rem;" class="me-2 mb-2">
+            Clients
+        </a>
+
+        <div class="collapse" id="user-collapse">
+            <ul class="nav nav-pills flex-column ms-3">
+                <li class="nav-item">
+                    <a [routerLink]="['client_list']" class="nav-link link-body-emphasis mb-1 mt-2" aria-current="page">
+                        Tout les clients
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['client_form']" class="nav-link link-body-emphasis mb-1">
+                        Ajouter un client
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>

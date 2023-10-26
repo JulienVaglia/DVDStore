@@ -1,0 +1,53 @@
+<a [routerLink]="['/movie_list']" class="btn btn-outline-dark ms-5">Retour aux films</a>
+
+
+    <div class="container" style="margin-top: 10rem;">
+        <div class="row">
+            <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+                <div class="card card-profile shadow">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <img [src]="dvd.photo" style="width: 15rem; margin-top: -3rem;" class="rounded position-absolute start-50 translate-middle shadow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+                        style="background-color: #C5A26E;">
+                        <div class="d-flex justify-content-between">
+                            <a [routerLink]="['/movie_form/' + id]" class="btn btn-sm btn btn-outline-dark mr-4">Modifier</a>
+                            <a (click)="deleteMovie(dvd.id)"
+                                class="btn btn-sm btn btn-outline-danger mr-4">Supprimer</a>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0 pt-md-4 mt-2">
+                        <div class="text-center">
+
+                            <div class="h5 font-weight-300">
+                                {{ dvd.name }}
+                            </div>
+                            <h3 class="h5 font-weight-300">
+                                {{ dvd.genre }}
+                            </h3>
+
+                            <div class="text-end position-absolute end-0 me-5" style="margin-top: -3rem;">
+                                <h3 style="color: grey;">Quantité en stock : <span>{{ dvd.quantity }} unité(s)</span></h3>
+
+                            </div>
+
+                            <div class="text-end position-absolute start-0 ms-5" style="margin-top: -3rem;">
+                                
+                                <h2 class="card-title" style="color: blue;"> Prix :<span>{{ dvd.price }} €</span></h2>
+                            </div>
+
+                            <hr class="my-4">
+                            <div>
+                                <h3>Synopsis :</h3>
+                                <p class="card-text ms-2">{{dvd.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,26 @@
+<a [routerLink]="['/panier_form']" class="btn btn-outline-dark ms-5 ">Ajouter un panier</a>
+
+<h1 class="text-center mt-5 fs-2 ">Liste des paniers</h1>
+<div class="w-75 rounded mx-auto mt-5 h-75 " style="border: 1px solid #C5A26E;">
+    <table class="table mt-5 mx-auto w-75">
+        <thead>
+            <tr>
+                <th class="w-25" scope="col">ID</th>
+                <th class="w-25" scope="col">Clients</th>
+                <th class="w-25" scope="col">Montant</th>
+
+                <th class="text-end" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let panier of paniers">
+            <tr>
+                <td scope="row">{{panier.id}}</td>
+                <td>{{panier.client_id}}</td>
+                <td>{{panier.montant}}</td>
+                <td class="text-end"><a [routerLink]="['/panier_detail', panier.id]"
+                        class="card-link btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .25rem;">Détail</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<!-- 
+    
+() sur les attributs html => aller chercher la valeur dans le ts seulement pour les events
+[] sur les attributs html => aller chercher la valeur dans le ts pour les variables
+{} à l'intérieur des balises => affiche les valeurs dans le html qui viennent du ts
+[()] ce sont des attibuts spéciaux pour html : [(ngModel)] => two ways binding = relation constante entre le ts et le html 
+
+HTML:
+[value]="searchText" (change)="handleSearchInput($event)" // Permet de copier le nouveau texte d'un input
+
+Pour importer ngModel il faut importer FormModule en TS
+
+
+
+Filtre par genre:
+
+dvdToShow = Array<Dvd> = []  Permet d'avoir une liste tampon / Penser a boucler sur cette liste dans le html
+
+    HTML:
+    <button (click)="handleGenre"('Amour')><button>
+
+    TS
+    handleGenre = ( genre : string) => {
+        this.dvdToShow = this.dvdToShow.filter((value) => {
+            return value.genre === genre
+        })
+    }
+-->

@@ -1,0 +1,42 @@
+<a [routerLink]="['/client_list']" class="btn btn-outline-dark ms-5">Retour aux clients</a>
+
+<div class="container" style="margin-top: 10rem;">
+        <div class="row">
+            <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+                <div class="card card-profile shadow">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg"
+                                    style="width: 15rem; margin-top: -3rem;"
+                                    class="rounded-circle position-absolute start-50 translate-middle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
+                        style="background-color: #C5A26E;">
+                        <div class="d-flex justify-content-between">
+                            <a [routerLink]="['/client_form/' + id]" class="btn btn-sm btn btn-outline-dark mr-4">Modifier</a>
+                            <a (click)="deleteClient(client.id)"
+                                class="btn btn-sm btn btn-outline-danger mr-4">Supprimer</a>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0 pt-md-4 mt-2">
+                        <div class="text-center">
+
+                            <div class="h5 font-weight-300">
+                                {{ client.nom }} {{ client.prenom }}
+                            </div>
+                            <h3 class="h5 font-weight-300">
+                                {{ client.adresse }}
+                            </h3>
+                            <hr class="my-4">
+                            <div class="">
+                                <h3>Liste des ventes :</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

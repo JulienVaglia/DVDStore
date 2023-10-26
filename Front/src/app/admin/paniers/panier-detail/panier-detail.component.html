@@ -1,0 +1,24 @@
+<a [routerLink]="['/panier_list']" class="btn btn-outline-dark ms-5">Retour aux paniers</a>
+
+<div class="mt-5">
+    <table class="table mx-auto w-75">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th class="w-75 text-center" scope="col">Dvd</th>
+                <th scope="col">Quantité</th>
+                <th class="text-end" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let dvd of panier.dvds">
+            <tr>
+                <td scope="row">{{dvd.id}}</td>
+                <td class="text-center">{{dvd.dvd_id}}</td>
+                <td>{{dvd.quantite}}</td>
+                <td class="text-end"><a (click)="deleteDvd(dvd.id)"
+                    class="card-link btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .25rem;">Supprimer</a>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

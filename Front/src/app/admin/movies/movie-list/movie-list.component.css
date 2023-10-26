@@ -1,0 +1,17 @@
+mat-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+}
+
+.nav-link:hover {
+    color: black; /* Couleur du texte au survol */
+  }
+
+.card:hover {
+    scale: 1.015;
+}
+.movieCard
+    {
+        border-color: #C5A26E;
+    }
