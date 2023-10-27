@@ -31,7 +31,7 @@ import { ProfilFormComponent } from './profil/profil-form/profil-form.component'
 import { PanierListComponent } from './paniers/panier-list/panier-list.component';
 import { PanierFormComponent } from './paniers/panier-form/panier-form.component';
 import { PanierDetailComponent } from './paniers/panier-detail/panier-detail.component';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import { RouteReuseStrategy } from '@angular/router';
 
 
@@ -82,6 +82,5 @@ import { RouteReuseStrategy } from '@angular/router';
   ],
 })
 export class AdminModule {
-
 
 }

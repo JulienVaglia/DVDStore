@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/_services/auth.service';
 
 export interface IToken {
@@ -22,7 +23,7 @@ export class HomeComponent {
 
   username : any
 
-constructor ( private authService: AuthService){}
+constructor ( private authService: AuthService, public platform: Platform){}
 
 ngOnInit()
 {
