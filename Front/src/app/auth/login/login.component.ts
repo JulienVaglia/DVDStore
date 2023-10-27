@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
+import { IonicModule } from '@ionic/angular';
 
 //Interface LogIn
  export interface ICredential {
@@ -19,7 +20,8 @@ export interface IToken {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone:true,
-  imports:[FormsModule]
+  imports:[FormsModule,
+  IonicModule]
 
 })
 export class LoginComponent {

@@ -19,6 +19,7 @@
     "@angular/material": "^16.2.4",
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
+    "@angular/pwa": "^16.2.8",
     "@angular/router": "^16.1.0",
     "@capacitor/android": "^5.5.1",
     "@capacitor/angular": "^2.0.3",

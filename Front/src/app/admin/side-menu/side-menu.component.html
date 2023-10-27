@@ -1,9 +1,26 @@
-<ion-menu contentId="main-content">
-    <ion-header>
+<ion-menu contentId="main-content" >
+    <!-- <ion-header>
         <ion-toolbar>
-            <ion-title>Menu Content</ion-title>
+            <ion-title>Menu principal</ion-title>
         </ion-toolbar>
+    </ion-header> -->
+
+    <ion-header class="dropdown mt-2 ms-2" z-index="10" >
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle me-0">
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item" [routerLink]="['profil']">Profil</a></li>
+          <li><a class="dropdown-item" href="#">Mon stock</a></li>
+          <li><a class="dropdown-item" [routerLink]="['panier_list']">Panier</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="" (click)="logout()">Se déconnecter</a></li>
+        </ul>
     </ion-header>
+
     <ion-content class="ion-padding">
         <div class="">
 

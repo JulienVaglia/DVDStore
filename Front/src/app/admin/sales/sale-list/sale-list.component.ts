@@ -5,6 +5,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { SalesService } from 'src/app/_services/sales.service';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 export interface VenteModel {
   id?: number,
@@ -33,7 +34,8 @@ const ELEMENT_DATA: VenteModel[] =
   imports: [
     MatTableModule,
     MatPaginatorModule,
-    CommonModule
+    CommonModule,
+    IonicModule
   ]
 
 })

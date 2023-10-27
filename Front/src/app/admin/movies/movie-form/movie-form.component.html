@@ -12,7 +12,7 @@
         </div>
 
         <!-- Genre -->
-        <div class="form-floating mb-4 w-25 ms-5 shadow">
+        <div class="form-floating mb-4 w-50 ms-5 shadow">
             <select [(ngModel)]="movieModel.genre" class="form-select" id="genre" aria-label="Floating label select example" name="genre">
                 <option *ngFor="let genre of genres">{{genre.genre}}</option>
             </select>
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Quantity -->
-        <div class="form-floating mb-4 w-25 ms-5 shadow">
+        <div class="form-floating mb-4 w-50 ms-5 shadow">
             <input type="number" [(ngModel)]="movieModel.quantity" class="form-control" id="quantity" name="quantity" placeholder="name@example.com" required min="0">
             <label for="quantity">Quantité :</label>
         </div>

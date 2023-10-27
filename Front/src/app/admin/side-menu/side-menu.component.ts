@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class SideMenuComponent {
 
+  constructor(private httpLogout: AuthService, private route: Router){}
+
+  logout()
+  {
+    this.httpLogout.logout();
+    this.route.navigate(['']);
+  }
 }
