@@ -1,0 +1,52 @@
+<ion-content>
+<h1 class="text-center mt-5 fs-2 ">Ajouter / Modifier</h1>
+
+<div class="w-75 rounded mx-auto mt-5 h-75 shadow" style="border: 1px solid #C5A26E;">
+
+    <form #movieForm="ngForm" name="movieModel" (submit)="addMovie()">
+
+        <!-- Nom -->
+        <div class="form-floating mt-5 mb-4 w-75 ms-5 shadow">
+            <input type="text" [(ngModel)]="movieModel.name" class="form-control" id="name" placeholder="name@example.com" name="name">
+            <label for="name">Nom du film :</label>
+        </div>
+
+        <!-- Genre -->
+        <div class="form-floating mb-4 w-50 ms-5 shadow">
+            <select [(ngModel)]="movieModel.genre" class="form-select" id="genre" aria-label="Floating label select example" name="genre">
+                <option *ngFor="let genre of genres">{{genre.genre}}</option>
+            </select>
+            <label for="genre">Choisir une catégorie</label>
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-floating mb-4 w-50 ms-5 shadow">
+            <input type="number" [(ngModel)]="movieModel.quantity" class="form-control" id="quantity" name="quantity" placeholder="name@example.com" required min="0">
+            <label for="quantity">Quantité :</label>
+        </div>
+
+        <!-- Price -->
+        <div class="form-floating mb-4 w-25 ms-5 shadow">
+            <input type="number" [(ngModel)]="movieModel.price" class="form-control" id="price" placeholder="name@example.com" name="price">
+            <label for="price">Prix :</label>
+        </div>
+
+        <!-- Photo -->
+        <div class="form-floating mb-4 w-75 ms-5 shadow">
+            <input type="text" [(ngModel)]="movieModel.photo" class="form-control" id="photo" placeholder="name@example.com" name="photo">
+            <label for="photo">Lien de la photo :</label>
+        </div>
+
+        <!-- Description -->
+        <div class="form-floating w-75 ms-5 mb-5 shadow">
+            <textarea class="form-control" [(ngModel)]="movieModel.description" placeholder="Leave a comment here" id="description" name="description" style="height: 100px"></textarea>
+            <label for="description">Description :</label>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-primary">Valider</button>
+        </div>
+
+    </form>
+</div>
+</ion-content>
