@@ -42,4 +42,9 @@ public class DvdServiceModel {
                 this.photo = photo;
                 this.description = description;
         }
+
+    public DvdServiceModel(String name, String genre) {
+        this.name = name;
+        this.genre = genre;
+    }
 }

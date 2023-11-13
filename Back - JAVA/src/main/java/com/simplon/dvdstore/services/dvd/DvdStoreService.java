@@ -29,8 +29,8 @@ public class DvdStoreService {
      * @return the boolean
      */
 // CREATE
-    public boolean add(DvdServiceModel dvdServiceModel)
-        {
+    public boolean add(DvdServiceModel dvdServiceModel) {
+        if (dvdServiceModel.getName() != null && dvdServiceModel.getGenre() != null) {
             DvdRepositoryModel dvdRepositoryModel = new DvdRepositoryModel(
                     dvdServiceModel.getName(),
                     dvdServiceModel.getGenre(),
@@ -40,16 +40,16 @@ public class DvdStoreService {
                     dvdServiceModel.getDescription());
 
             DvdRepositoryModel dvdRepositoryModelReturned = null;
-            try{
-                dvdRepositoryModelReturned = dvdStoreRepository.save( dvdRepositoryModel);
-            }
-            catch (Exception e ) {
+            try {
+                dvdRepositoryModelReturned = dvdStoreRepository.save(dvdRepositoryModel);
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
 
-            return dvdRepositoryModelReturned != null ;
+            return dvdRepositoryModelReturned != null;
         }
-
+        return false;
+    }
 
     /**
      * Find all array list.
@@ -59,10 +59,10 @@ public class DvdStoreService {
 // GET ALL
     public ArrayList<DvdServiceModel> findAll()
         {
-            ArrayList<DvdServiceModel> dvdModelService = new ArrayList<>();
+            ArrayList<com.simplon.dvdstore.services.dvd.DvdServiceModel> dvdModelService = new ArrayList<>();
             ArrayList<DvdRepositoryModel> dvdRepositoryModelArrayList = dvdStoreRepository.findAll();
             for(DvdRepositoryModel x: dvdRepositoryModelArrayList){
-                dvdModelService.add(new DvdServiceModel(
+                dvdModelService.add(new com.simplon.dvdstore.services.dvd.DvdServiceModel(
                         Optional.ofNullable(x.getId()),
                         x.getName(),
                         x.getGenre(),
