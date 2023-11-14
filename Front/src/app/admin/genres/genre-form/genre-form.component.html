@@ -1,0 +1,36 @@
+<ion-content scrollY="true">
+    <h1 class="text-center mt-5 fs-2 ">Catégorie</h1>
+
+    <form #genreForm="ngForm" class="mt-3 d-flex flex-wrap mx-auto" name="genreModel" (submit)="addGenre()">
+
+
+        <div class="w-75 rounded mx-auto mt-5 h-75 mb-4" style="border: 1px solid #C5A26E;">
+
+            <!-- Ajouter un Genre -->
+
+            <h2 class="ms-4 mt-5">Ajouter un catégorie</h2>
+            <div class="form-floating w-75 mx-auto mb-4 shadow">
+                <input [(ngModel)]="genreModel.genre" type="text" class="form-control" id="floatingInput"
+                    name="floatingInput" placeholder="Drame" style="margin-top: 5rem; ">
+                <label for="floatingInput">Genre :</label>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-primary">Valider</button>
+            </div>
+
+            <hr class="w-75 mx-auto mt-5 mb-5">
+
+            <!-- Liste des Genres -->
+
+            <h2 class="ms-4 mt-5">Liste des catégories</h2>
+
+            <div class="mt-3">
+                <app-genre-list></app-genre-list> <!-- Appel du module genre-liste -->
+            </div>
+
+
+        </div>
+
+    </form>
+</ion-content>
